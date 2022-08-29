@@ -10,3 +10,17 @@ body{
 .bg_black {
     background-color: #121212;
 }
+
+.button {
+    background-color: #6527F0;
+    width: auto;
+    height: 5vh;
+    border-radius: 0.8vh;
+    border-style: none;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.button:hover {
+    background-color: #5d24d6;
+}
