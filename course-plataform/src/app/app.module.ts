@@ -15,6 +15,7 @@ import { CoursesComponent } from './pages/courses/courses.component';
 import { MenuComponent } from './sharepage/menu/menu.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { RegisterComponent } from './pages/register/register.component';
     MenuComponent,
     CoursesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SettingsComponent
+
   ],
   imports: [
     BrowserModule,
