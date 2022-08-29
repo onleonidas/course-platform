@@ -29,9 +29,8 @@ import { LoginComponent } from './pages/login/login.component';
     FooterComponent,
     HomeComponent,
     MenuComponent,
-    HeaderComponent,
     PopUpComponent,
-    SettingsComponent
+    SettingsComponent,
     CoursesComponent,
     LoginComponent
   ],
