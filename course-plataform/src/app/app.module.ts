@@ -16,6 +16,8 @@ import { MenuComponent } from './sharepage/menu/menu.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { BuycourseComponent } from './pages/buycourse/buycourse.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SettingsComponent } from './pages/settings/settings.component';
     CoursesComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent
+    SettingsComponent,
+    BuycourseComponent,
+    PaymentComponent
 
   ],
   imports: [

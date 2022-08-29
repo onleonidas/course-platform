@@ -4,12 +4,18 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './sharepage/menu/menu.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
+import { BuycourseComponent } from './pages/buycourse/buycourse.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
  {path:'',component:HomeComponent},
  {path:'Menu', component:MenuComponent},
  {path: 'login', component:LoginComponent},
- {path: 'Register', component: RegisterComponent}
+ {path: 'Register', component: RegisterComponent},
+ {path: 'PopUp', component: PopUpComponent},
+ {path: 'Buycourses', component: BuycourseComponent},
+ {path: 'Payment', component: PaymentComponent}
 ];
 
 @NgModule({
