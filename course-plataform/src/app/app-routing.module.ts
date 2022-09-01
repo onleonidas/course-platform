@@ -7,6 +7,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { BuycourseComponent } from './pages/buycourse/buycourse.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { HomeOnComponent } from './pages/home-on/home-on.component';
 
 const routes: Routes = [
  {path:'',component:HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
  {path: 'Register', component: RegisterComponent},
  {path: 'PopUp', component: PopUpComponent},
  {path: 'Buycourses', component: BuycourseComponent},
- {path: 'Payment', component: PaymentComponent}
+ {path: 'Payment', component: PaymentComponent},
+ { path: 'Homeon', component: HomeOnComponent}
 ];
 
 @NgModule({

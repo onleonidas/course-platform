@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/register/register.component'
 import { BuycourseComponent } from './pages/buycourse/buycourse.component'
 import { PaymentComponent } from './pages/payment/payment.component'
 import { SettingsComponent } from './pages/settings/settings.component'
+import { HomeOnComponent } from './pages/home-on/home-on.component'
 
 export const ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -13,5 +14,6 @@ export const ROUTES: Routes = [
     { path: 'Register', component: RegisterComponent },
     { path: 'Buycourse', component: BuycourseComponent },
     { path: 'Payment', component: PaymentComponent},
-    { path: 'settings', component: SettingsComponent}
+    { path: 'settings', component: SettingsComponent},
+    { path: 'Homeon', component: HomeOnComponent}
 ]

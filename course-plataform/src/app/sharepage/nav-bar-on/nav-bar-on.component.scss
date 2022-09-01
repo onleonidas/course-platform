@@ -1,0 +1,36 @@
+.button {
+    background-color: #6527F0;
+}
+
+.navbar-toggler {
+    color: white;
+    background-color: white;
+}
+
+.nav-item{
+    list-style: none;
+    margin-left: 10px;
+}
+
+.icon{
+    font-size: 25px;
+    color: white;
+}
+
+.img-circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border-width: 2px; // Estiliza a sua largura
+    border-style: solid; // Estiliza seu estilo
+    border-color:  white;
+    margin-top: -0.3vh;
+}
+
+@media screen and (max-width: 1330px) {
+    .respon-button {
+        margin-top: 5vh;
+    }
+    
+
+}

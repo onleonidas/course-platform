@@ -18,6 +18,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { BuycourseComponent } from './pages/buycourse/buycourse.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { HomeOnComponent } from './pages/home-on/home-on.component';
+import { NavBarOnComponent } from './sharepage/nav-bar-on/nav-bar-on.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { PaymentComponent } from './pages/payment/payment.component';
     RegisterComponent,
     SettingsComponent,
     BuycourseComponent,
-    PaymentComponent
+    PaymentComponent,
+    HomeOnComponent,
+    NavBarOnComponent
 
   ],
   imports: [
