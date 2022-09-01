@@ -24,10 +24,6 @@
     border-radius: 20px 0px 0px 20px;
 }
 
-.bg-img iframe {
-    
-}
-
 .login {
     width: 40%;
     justify-content: center;
@@ -40,15 +36,15 @@
 
 
 @media screen and (max-width: 1330px) {
-    .bg-img {
+    .login {
         display: none;
     }
 
     .container_1{
-        width: 65%;
+        width: 90%;
     }
 
-    .login {
+    .bg-img {
         width: 100%;
         border-radius: 20px 20px 20px 20px;
     }

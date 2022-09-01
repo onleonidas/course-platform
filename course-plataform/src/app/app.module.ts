@@ -18,6 +18,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { BuycourseComponent } from './pages/buycourse/buycourse.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { HomeOnComponent } from './pages/home-on/home-on.component';
+import { NavBarOnComponent } from './sharepage/nav-bar-on/nav-bar-on.component';
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { ExportComponent } from './pages/export/export.component';
 
@@ -35,6 +37,8 @@ import { ExportComponent } from './pages/export/export.component';
     SettingsComponent,
     BuycourseComponent,
     PaymentComponent,
+    HomeOnComponent,
+    NavBarOnComponent,
     CertificateComponent,
     ExportComponent
 

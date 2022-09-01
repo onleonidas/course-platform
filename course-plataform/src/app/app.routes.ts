@@ -5,6 +5,8 @@ import { LoginComponent } from './pages/login/login.component'
 import { RegisterComponent } from './pages/register/register.component'
 import { BuycourseComponent } from './pages/buycourse/buycourse.component'
 import { PaymentComponent } from './pages/payment/payment.component'
+import { SettingsComponent } from './pages/settings/settings.component'
+import { HomeOnComponent } from './pages/home-on/home-on.component'
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { ExportComponent } from './pages/export/export.component';
 
@@ -15,5 +17,7 @@ export const ROUTES: Routes = [
     { path: 'Buycourse', component: BuycourseComponent },
     { path: 'Payment', component: PaymentComponent },
     { path: 'Certificate', component: CertificateComponent },
-    { path: 'Export', component: ExportComponent }
+    { path: 'Export', component: ExportComponent },
+    { path: 'settings', component: SettingsComponent},
+    { path: 'Homeon', component: HomeOnComponent}
 ]
