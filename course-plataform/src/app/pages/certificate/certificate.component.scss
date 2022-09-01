@@ -1,6 +1,6 @@
-.area {
-    width: 100%;
-    height: 100%;
+.certificate-area {
+    width: 800px;
+    height: 480px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,17 +17,9 @@
     width: 60%;
 }
 
-// @media screen and (max-width: 1330px) {
-//     .bg-img {
-//         display: none;
-//     }
+#certificate-stamp {
 
-//     .container_1{
-//         width: 65%;
-//     }
+}
 
-//     .login {
-//         width: 100%;
-//         border-radius: 20px 20px 20px 20px;
-//     }
-// }
+@media screen and (max-width: 1330px) {
+}
