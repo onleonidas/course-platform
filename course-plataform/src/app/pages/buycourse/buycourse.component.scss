@@ -34,6 +34,16 @@
     border-radius: 0px 20px 20px 0px;
 }
 
+.buttons-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+button {
+    margin-left: 8px;
+}
+
 
 @media screen and (max-width: 1330px) {
     .login {
