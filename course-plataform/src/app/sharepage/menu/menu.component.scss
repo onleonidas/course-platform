@@ -1,3 +1,8 @@
 #size_nav {
     height: 12vh;
 }
+@media screen and (max-width: 1000px) {
+    .teste {
+        display: none;
+    }
+}
