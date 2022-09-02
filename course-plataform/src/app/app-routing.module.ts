@@ -8,6 +8,8 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 import { BuycourseComponent } from './pages/buycourse/buycourse.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { HomeOnComponent } from './pages/home-on/home-on.component';
+import { CertificateComponent } from './pages/certificate/certificate.component';
+import { ExportComponent } from './pages/export/export.component';
 
 const routes: Routes = [
  {path:'',component:HomeComponent},
@@ -17,7 +19,9 @@ const routes: Routes = [
  {path: 'PopUp', component: PopUpComponent},
  {path: 'Buycourses', component: BuycourseComponent},
  {path: 'Payment', component: PaymentComponent},
- { path: 'Homeon', component: HomeOnComponent}
+ {path: 'Homeon', component: HomeOnComponent},
+ {path: 'Certificate', component: CertificateComponent},
+ {path: 'Export', component: ExportComponent}
 ];
 
 @NgModule({

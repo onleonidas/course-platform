@@ -1,0 +1,25 @@
+.certificate-area {
+    width: 800px;
+    height: 480px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #282727;
+    color: #fff;
+}
+
+.student-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+
+#certificate-stamp {
+
+}
+
+@media screen and (max-width: 1330px) {
+}

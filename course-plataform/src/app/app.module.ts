@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
@@ -20,6 +20,8 @@ import { BuycourseComponent } from './pages/buycourse/buycourse.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { HomeOnComponent } from './pages/home-on/home-on.component';
 import { NavBarOnComponent } from './sharepage/nav-bar-on/nav-bar-on.component';
+import { CertificateComponent } from './pages/certificate/certificate.component';
+import { ExportComponent } from './pages/export/export.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { NavBarOnComponent } from './sharepage/nav-bar-on/nav-bar-on.component';
     BuycourseComponent,
     PaymentComponent,
     HomeOnComponent,
-    NavBarOnComponent
+    NavBarOnComponent,
+    CertificateComponent,
+    ExportComponent
 
   ],
   imports: [
