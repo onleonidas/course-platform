@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -20,4 +20,17 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should register button when is not logged', fakeAsync(() => {
+
+    let button = fixture.debugElement.nativeElement.querySelector('.button-register');
+    expect(button.innerText).toBe("Start Your Journey");
+  }));
+
+  it('should login button when is not logged', fakeAsync(() => {
+
+    let button = fixture.debugElement.nativeElement.querySelector('.button-login');
+    expect(button.innerText).toBe("Login");
+  }));
+
 });
