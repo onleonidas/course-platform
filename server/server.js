@@ -1,16 +1,28 @@
 const http = require("http");
 const express = require("express");
-const notificacao = require("./notificacao/notificacao.js")
-const autenticacao = require("./autenticacao/autenticacao.js")
-const autenticacao = require("./cadastrar_cursos/cadastro.js")
-const autenticacao = require("./certificado/certificado.js")
-const autenticacao = require("./compra/compra.js")
-
 const app = express();
+const fs = require('fs')
+
+const notificacao = require("./notificacao/notificacao.js");
+const autenticacao = require("./autenticacao/autenticacao.js");
+const cadastrar_cursos = require("./cadastrar_cursos/cadastro.js");
+const certificado = require("./certificado/certificado.js");
+const compra = require("./compra/compra.js");
+
+http.createServer(app).listen(3000,'localhost', () => console.log("Servidor rodando local na porta 3000"));
 
 app.get("/hmm", function(req, res) {
-    res.send('The area of a square with a width of 10 is ' + mod.perimeter(10));
+    console.log(req.url,req.method);
+
+        
+    res.setHeader('Content-Type', 'text/html');
+    res.send('hmmmmm')
+
+    /*
+    fs.readFile('../course-plataform/src/index.html', (err,data) => {
+        res.write(data)
+        res.end()
+    })*/
 });
 
-http.createServer(app).listen(3000, () => console.log("Servidor rodando local na porta 3000"));
 

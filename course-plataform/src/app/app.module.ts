@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ROUTES } from './app.routes'
 
@@ -41,12 +42,13 @@ import { ExportComponent } from './pages/export/export.component';
     NavBarOnComponent,
     CertificateComponent,
     ExportComponent
-
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],
