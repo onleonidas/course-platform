@@ -10,6 +10,7 @@ import { PaymentComponent } from './pages/payment/payment.component';
 import { HomeOnComponent } from './pages/home-on/home-on.component';
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { ExportComponent } from './pages/export/export.component';
+import { UploadCourseComponent } from './pages/upload-course/upload-course.component';
 
 const routes: Routes = [
  {path:'',component:HomeComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
  {path: 'Payment', component: PaymentComponent},
  {path: 'Homeon', component: HomeOnComponent},
  {path: 'Certificate', component: CertificateComponent},
- {path: 'Export', component: ExportComponent}
+ {path: 'Export', component: ExportComponent},
+ {path: 'UploadCourse', component: UploadCourseComponent}
 ];
 
 @NgModule({
