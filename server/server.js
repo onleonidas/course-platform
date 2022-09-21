@@ -17,15 +17,29 @@ app.use(cors())
 app.get("/hmm", function(req, res) {
     console.log(req.url,req.method);
 
-        
+    responce = {
+        "name": "John",
+        "age": 22,
+    }
+
     res.setHeader('Content-Type', 'text/html');
-    res.send(JSON.stringify('hmmmmm'))
+    res.send(responce)
 
     /*
     fs.readFile('../course-plataform/src/index.html', (err,data) => {
         res.write(data)
         res.end()
     })*/
+});
+
+
+app.get("/login", function(req, res) {
+    res.setHeader('Content-Type', 'text/html');
+    resposta = [
+        {"login": "John","senha": 22,},
+        {"login": "Cena","senha": 10,},
+    ]
+        res.send(resposta)
 });
 
 
