@@ -10,23 +10,20 @@ import axios from 'axios';
 @Injectable()
 export class LoginComponent implements OnInit {
   server = 'http://localhost:3000';
-  #response = []
-  resp = Array();
-  ngOnInit(): void {
-    
+  state = {
+    person: ""
   }
+
+  ngOnInit(): void {}
   constructor(private http : HttpClient) {}
   
   async get_logins(){
-    let res = await axios.get(this.server + '/login');
-    let data =  JSON.parse(res.data)
-
-    try {
-      console.log(data);
-    }
-    catch(err) {
-      console.log("liguagem lixo");
-    }
+    //let res = await axios.get(this.server + '/login');
+    //let data =  res.data
+    axios.get(this.server + '/login').then((res) => {
+      const persons = res.data;
+      console.log(persons)
+    })
   }
 }
 

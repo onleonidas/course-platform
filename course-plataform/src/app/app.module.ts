@@ -24,6 +24,7 @@ import { NavBarOnComponent } from './sharepage/nav-bar-on/nav-bar-on.component';
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { ExportComponent } from './pages/export/export.component';
 import { UploadCourseComponent } from './pages/upload-course/upload-course.component';
+import { CourseuploadComponent } from './pages/course-upload/courseupload/courseupload.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UploadCourseComponent } from './pages/upload-course/upload-course.compo
     NavBarOnComponent,
     CertificateComponent,
     ExportComponent,
-    UploadCourseComponent
+    UploadCourseComponent,
+    CourseuploadComponent
     
   ],
   imports: [
