@@ -1,6 +1,7 @@
 import { Component, OnInit , Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import axios from 'axios';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,35 @@ import axios from 'axios';
 })
 @Injectable()
 export class LoginComponent implements OnInit {
+
+  email : string = '';
+  password : string = '';
+
+  constructor(private auth : AuthService) {
+
+  }
+
   server = 'http://localhost:3000';
   state = {
     person: ""
   }
 
   ngOnInit(): void {}
-  constructor(private http : HttpClient) {}
-  
-  async get_logins(){
-    //let res = await axios.get(this.server + '/login');
-    //let data =  res.data
-    axios.get(this.server + '/login').then((res) => {
-      const persons = res.data;
-      console.log(persons)
-    })
+
+  login() {
+    if (this.email == ''){
+      alert('Please enter email')
+      return;
+    }
+
+    if (this.password == ''){
+      alert('Please enter password')
+      return;
+    }
+
+    this.auth.login(this.email, this.password);
+    this.email = '';
+    this.password = '';
   }
 }
 

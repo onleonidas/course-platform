@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AngularFireModule } from '@angular/fire/compat';
+
 import { ROUTES } from './app.routes'
 
 import { AppComponent } from './app.component';
@@ -25,6 +27,11 @@ import { CertificateComponent } from './pages/certificate/certificate.component'
 import { ExportComponent } from './pages/export/export.component';
 import { UploadCourseComponent } from './pages/upload-course/upload-course.component';
 import { CourseuploadComponent } from './pages/course-upload/courseupload/courseupload.component';
+import { FirebaseAppModule, initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore, FirestoreModule } from '@angular/fire/firestore';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,7 +60,9 @@ import { CourseuploadComponent } from './pages/course-upload/courseupload/course
     AppRoutingModule,
     MatToolbarModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

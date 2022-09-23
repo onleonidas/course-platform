@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hawking-ess": {
+      "hosting": {
+        "course-plataform": [
+          "hawking-ess"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hawking-ess"
+  }
+}
