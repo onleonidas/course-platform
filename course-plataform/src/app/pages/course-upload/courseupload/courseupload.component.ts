@@ -11,15 +11,15 @@ import axios from 'axios';
 })
 export class CourseuploadComponent implements OnInit {
   server = 'http://localhost:3000';
-  constructor() { }
+  nome: string;
+  link: string;
 
-  
-  ngOnInit(): void {
-  }
+  constructor() {this.nome="";this.link = "";}
+  ngOnInit(): void {this.nome="";}
 
   async post_courses(){
     await axios.post((this.server + '/Courseupload'),{
-      coursename:'docker',link:'link_do_video'
+      coursename:this.nome,link:this.link
     })
     .then(function (response) {
       console.log(response);
