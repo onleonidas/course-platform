@@ -115,4 +115,38 @@ app.get('/getNoti', function(req,res){
   }else{
     res.end('I will not send you notification');
   }
+  get_person_course('jose');
 });
+
+function write_person_course(person,st){
+  fs.writeFileSync('something.txt', person);
+
+}
+function get_person_course(person){
+  try{
+    fs.readFile(person+".txt", function (err, data) {
+      if (err) {
+        return console.error(err);
+      }
+      let dados = data.toString();
+      let resp = ""
+      var listOfObjects = [];
+      for (var i = 0; i < dados.length; i++) {
+        resp += dados[i];
+        if(dados[i] == '}'){
+          i++;
+          resp += dados[i];
+          listOfObjects.push(JSON.parse(JSON.stringify(resp)))
+          resp = '';
+          i++;
+        }
+      }
+      console.log(listOfObjects.length)
+      for (var i = 0; i < listOfObjects.length; i++) {
+        console.log(listOfObjects[i])
+      }
+    });
+  }catch{
+
+  }
+}
