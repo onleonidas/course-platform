@@ -21,7 +21,7 @@ export class CourseuploadComponent implements OnInit {
 
   async post_courses(){
     await axios.post((this.server + '/Courseupload'),{
-      coursename:this.nome,link:this.link
+      coursename:this.nome,link:this.link,descricao:this.descricao,image:this.image
     })
     .then(function (response) {
       console.log(response);
@@ -29,5 +29,8 @@ export class CourseuploadComponent implements OnInit {
     .catch(function (error) {
       console.log(error);
     });
+
+    console.log(this.nome);
+
   }
 }
