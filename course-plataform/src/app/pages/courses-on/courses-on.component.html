@@ -1,0 +1,18 @@
+
+<div class="container text-center mt-5">
+    <h3 class="mb-5">Popular Courses</h3>
+    <div class="row mt-3">
+        <ul *ngFor="let course of array_cursos">
+            <div class="col">
+                <div class="card">
+                    <img src={{course.image}} class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">{{course.nome}}</h5>
+                    <p class="card-text">{{course.descricao}}</p>
+                    <a href="#" class="btn button_color text-light" routerLink={{course.link}} routerLinkActive="active-link">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </div>
+  </div>

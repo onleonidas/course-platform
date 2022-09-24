@@ -32,6 +32,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore, FirestoreModule } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
+import { CoursesOnComponent } from './pages/courses-on/courses-on.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FormsModule } from '@angular/forms';
     CertificateComponent,
     ExportComponent,
     UploadCourseComponent,
-    CourseuploadComponent
+    CourseuploadComponent,
+    CoursesOnComponent
     
   ],
   imports: [

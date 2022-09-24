@@ -11,7 +11,7 @@ export class CoursesComponent implements OnInit {
   server = 'http://localhost:3000';
 
   constructor() { }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-  }
+
 }

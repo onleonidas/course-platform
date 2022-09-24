@@ -10,6 +10,7 @@ const autenticacao = require("./autenticacao/autenticacao.js");
 const cadastrar_cursos = require("./cadastrar_cursos/cadastro.js");
 const certificado = require("./certificado/certificado.js");
 const compra = require("./compra/compra.js");
+const { Console } = require("console");
 
 http.createServer(app).listen(3000,'localhost', () => console.log("Servidor rodando local na porta 3000"));
 
@@ -50,9 +51,20 @@ function filewrite(st,path_file){
           );
     })
 }
+
 app.post('/Courseupload', function requestHandler(req, res) {
     console.log(req.body);
     filewrite(JSON.stringify(req.body),"data_courses.txt");
     res.end('Hello, World!');
+});
+
+app.get('/Courseon', function(req,res){
+  fs.readFile("data_courses.txt", function (err, data) {
+    if (err) {
+      return console.error(err);
+    }
+    res.end(data.toString());
+  });
+
 });
 

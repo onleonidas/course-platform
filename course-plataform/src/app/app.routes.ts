@@ -10,6 +10,7 @@ import { HomeOnComponent } from './pages/home-on/home-on.component'
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { ExportComponent } from './pages/export/export.component';
 import { CourseuploadComponent } from './pages/course-upload/courseupload/courseupload.component';
+import { CoursesOnComponent } from './pages/courses-on/courses-on.component';
 
 export const ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -22,4 +23,5 @@ export const ROUTES: Routes = [
     { path: 'settings', component: SettingsComponent},
     { path: 'Homeon', component: HomeOnComponent},
     { path: 'Courseupload', component: CourseuploadComponent},
+    { path: 'CourseOn', component: CoursesOnComponent},
 ]
