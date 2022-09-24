@@ -13,8 +13,10 @@ export class CourseuploadComponent implements OnInit {
   server = 'http://localhost:3000';
   nome: string;
   link: string;
+  descricao: string;
+  image: string;
 
-  constructor() {this.nome="";this.link = "";}
+  constructor() {this.nome="";this.link = "";this.descricao = "",this.image = ""}
   ngOnInit(): void {this.nome="";}
 
   async post_courses(){
