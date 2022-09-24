@@ -15,7 +15,7 @@ export class CoursesOnComponent implements OnInit {
   desc: string[];
   imagens: string[];
 
-  constructor() { this.nomes = [];this.links = [];this.desc = [];this.imagens = [];
+  constructor() {this.nomes = [];this.links = [];this.desc = [];this.imagens = [];
     this.array_cursos = [];}
   ngOnInit(): void {this.get_courses();}
 

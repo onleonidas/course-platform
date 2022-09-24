@@ -59,12 +59,36 @@ app.post('/Courseupload', function requestHandler(req, res) {
 });
 
 app.get('/Courseon', function(req,res){
+  //js he tao ruim q n deixa eu transformar isso numa funcao
   fs.readFile("data_courses.txt", function (err, data) {
     if (err) {
       return console.error(err);
     }
     res.end(data.toString());
   });
-
 });
+
+app.get('/Popup',function(req,res){
+  fs.readFile("promotion.txt", function (err, data) {
+    if (err) {
+      return console.error(err);
+    }
+    let dados = data.toString();
+    let resp = ""
+    for (var i = 0; i < dados.length; i++) {
+      resp += dados[i];
+      if(dados[i] == '}'){
+        let rand = Math.floor(Math.random() * 4);
+        if(rand<2){
+          console.log(resp)
+          res.end(resp);
+          i = dados.length;
+          break;
+        }
+        resp = '';
+        i+=2;
+      }
+    }
+  });
+})
 
