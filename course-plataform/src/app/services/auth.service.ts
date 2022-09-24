@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(private fireauth : AngularFireAuth, private router : Router) { }
 
   //login method
@@ -31,7 +30,7 @@ export class AuthService {
     })
   }
 
-  //sign up
+  //logout
   logout() {
     this.fireauth.signOut().then( () => {
       localStorage.removeItem('token');

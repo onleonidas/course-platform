@@ -33,6 +33,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore, FirestoreModule } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { CoursesOnComponent } from './pages/courses-on/courses-on.component';
+import { MycoursesComponent } from './pages/mycourses/mycourses.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CoursesOnComponent } from './pages/courses-on/courses-on.component';
     ExportComponent,
     UploadCourseComponent,
     CourseuploadComponent,
-    CoursesOnComponent
+    CoursesOnComponent,
+    MycoursesComponent
     
   ],
   imports: [

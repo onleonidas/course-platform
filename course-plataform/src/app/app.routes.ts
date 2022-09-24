@@ -11,6 +11,7 @@ import { CertificateComponent } from './pages/certificate/certificate.component'
 import { ExportComponent } from './pages/export/export.component';
 import { CourseuploadComponent } from './pages/course-upload/courseupload/courseupload.component';
 import { CoursesOnComponent } from './pages/courses-on/courses-on.component';
+import { MycoursesComponent } from './pages/mycourses/mycourses.component'
 
 export const ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -24,4 +25,5 @@ export const ROUTES: Routes = [
     { path: 'Homeon', component: HomeOnComponent},
     { path: 'Courseupload', component: CourseuploadComponent},
     { path: 'CourseOn', component: CoursesOnComponent},
+    { path: 'Mycourses', component: MycoursesComponent}
 ]

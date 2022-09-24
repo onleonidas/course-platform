@@ -1,0 +1,19 @@
+<app-nav-bar-on></app-nav-bar-on>
+<div>
+    <div class="py-5">
+      <div class="container">
+        <div class="row hidden-md-up">
+          <div class="col-md-4" *ngFor="let course of array_cursos">
+            <div class="card py-2 px-2">
+              <div class="card-block">
+                <img src={{course.image}} class="card-img-top" alt="...">
+                <div class="card-block">
+                <h5 class="card-title mt-2">{{course.nome}}</h5>
+                <p class="card-text">{{course.descricao}}</p>
+                <a href="{{course.link}}" class="btn button_color text-light">Start</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>

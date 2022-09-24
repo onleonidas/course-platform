@@ -1,10 +1,10 @@
-<div class="container text-center mt-5">
-    <h3 class="mb-5">Popular Courses</h3>
-    <div class="row mt-3" >
-        <div class="col" *ngFor="let course of array_cursos">
-            <div class="card">
+<div class="container text-center">
+    <h3 class="mt-5 mb-5">Popular Courses</h3>
+    <div class="row hidden-md-up" >
+        <div class="col-md-4" *ngFor="let course of array_cursos">
+            <div class="card py-2 px-2 my-2">
                 <img src={{course.image}} class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="card-block">
                 <h5 class="card-title">{{course.nome}}</h5>
                 <p class="card-text">{{course.descricao}}</p>
                 <a href="#" class="btn button_color text-light" routerLink={{course.link}} routerLinkActive="active-link">Go somewhere</a>
@@ -13,3 +13,6 @@
         </div>
     </div>
   </div>
+
+
+  
