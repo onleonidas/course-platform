@@ -68,27 +68,51 @@ app.get('/Courseon', function(req,res){
   });
 });
 
+let is_pop = Boolean;
 app.get('/Popup',function(req,res){
-  fs.readFile("promotion.txt", function (err, data) {
-    if (err) {
-      return console.error(err);
-    }
-    let dados = data.toString();
-    let resp = ""
-    for (var i = 0; i < dados.length; i++) {
-      resp += dados[i];
-      if(dados[i] == '}'){
-        let rand = Math.floor(Math.random() * 4);
-        if(rand<2){
-          console.log(resp)
-          res.end(resp);
-          i = dados.length;
-          break;
-        }
-        resp = '';
-        i+=2;
+  if(typeof(this.is_pop)=="undefined"){
+    this.is_pop = true;
+  }
+  if(this.is_pop == true){
+    fs.readFile("promotion.txt", function (err, data) {
+      if (err) {
+        return console.error(err);
       }
-    }
-  });
+      let dados = data.toString();
+      let resp = ""
+      for (var i = 0; i < dados.length; i++) {
+        resp += dados[i];
+        if(dados[i] == '}'){
+          let rand = Math.floor(Math.random() * 4);
+          if(rand<2){
+            res.end(resp);
+            i = dados.length;
+            break;
+          }
+          resp = '';
+          i+=2;
+        }
+      }
+    });
+  }else{
+    res.end('no notification');
+  }
 })
 
+app.post('/ChangeNoti', function requestHandler(req, res) {
+  if(this.is_pop){
+    this.is_pop = false;
+    res.end('I will send notifications');
+  }else{
+    this.is_pop = true;
+    res.end('I will not send you notification');
+  }
+});
+
+app.get('/getNoti', function(req,res){
+  if(this.is_pop){
+    res.end('I will send notifications');
+  }else{
+    res.end('I will not send you notification');
+  }
+});
