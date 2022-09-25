@@ -52,12 +52,14 @@ function filewrite(st,path_file){
     })
 }
 
+//save a course
 app.post('/Courseupload', function requestHandler(req, res) {
     console.log(req.body);
     filewrite(JSON.stringify(req.body),"data_courses.txt");
     res.end('Hello, World!');
 });
 
+//send courses saved to front
 app.get('/Courseon', function(req,res){
   //js he tao ruim q n deixa eu transformar isso numa funcao
   fs.readFile("data_courses.txt", function (err, data) {
@@ -68,6 +70,7 @@ app.get('/Courseon', function(req,res){
   });
 });
 
+//chose a random course and send back to front
 let is_pop = Boolean;
 app.get('/Popup',function(req,res){
   if(typeof(this.is_pop)=="undefined"){
@@ -99,6 +102,7 @@ app.get('/Popup',function(req,res){
   }
 })
 
+//change not app
 app.post('/ChangeNoti', function requestHandler(req, res) {
   if(this.is_pop){
     this.is_pop = false;
@@ -150,3 +154,32 @@ function get_person_course(person){
 
   }
 }
+
+let course_bought = "";
+app.post('/TryingToBuy',function(req,res){
+  this.person_bought.course = req.body;
+});
+
+//send back to front the course information given a course name
+app.post('/CourseInfo',function(req,res){
+  fs.readFile("data_courses.txt", function (err, data) {
+    if (err) {
+      return console.error(err);
+    }
+    let dados = data.toString();
+    let resp = ""
+    for (var i = 0; i < dados.length; i++) {
+      resp += dados[i];
+      if(dados[i] == '}'){
+        //rasp has one json here
+        let json1 = JSON.parse(resp)
+        if(json1.nome==req.body){
+          res.end(json1)
+          i = dados.length;
+        }
+        resp = '';
+        i++;
+      }
+    }
+  });
+});
