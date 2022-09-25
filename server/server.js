@@ -178,3 +178,43 @@ app.post('/Buycourses',function(req,res){
     }
   });
 });
+
+
+//return person config
+app.post('/PersonConfig', function(req,res){
+  console.log("data receive with name: " + req.body.name);
+  console.log("trying to get:" + req.body.info);
+  try{
+    fs.readFile(req.body.name+".txt", function (err, data) {
+      if (err) {
+        return console.error(err);
+      }
+      var listOfObjects = [];
+      listOfObjects = get_jsons(data.toString())
+      console.log(listOfObjects.length)
+      for (var i = 0; i < listOfObjects.length; i++) {
+        console.log(typeof(JSON.parse(JSON.stringify(listOfObjects[0]))))
+      }
+      //res.end(listOfObjects)
+    });
+  }catch{
+    res.end("no data")
+  }
+});
+
+//this function returns a json property given a string
+function get_jsons(data){
+  let dados = data;
+  let resp = ""
+  var listOfObjects = [];
+  for (var i = 0; i < dados.length; i++) {
+    resp += dados[i];
+    if(dados[i] == '}'){
+      i++;
+      resp += dados[i];
+      listOfObjects.push(JSON.parse(JSON.stringify(resp)))
+      resp = '';
+      i+=2;
+    }
+  }
+  return listOfObjects;
