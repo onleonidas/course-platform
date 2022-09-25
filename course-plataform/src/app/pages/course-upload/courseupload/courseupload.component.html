@@ -6,7 +6,11 @@
                 <div class="row">
                     <div class="col">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" [(ngModel)]="nome">
+                        <input type="text" class="form-control" [(ngModel)]="title">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Price</label>
+                        <input type="text" class="form-control" [(ngModel)]="price">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">video link</label>
@@ -14,11 +18,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">description</label>
-                        <input type="text" class="form-control"  [(ngModel)]="descricao">
+                        <input type="text" class="form-control"  [(ngModel)]="desc">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">image link</label>
-                        <input type="text" class="form-control"  [(ngModel)]="image">
+                        <input type="text" class="form-control"  [(ngModel)]="img">
                     </div>
                     <button  type="submit" class="button text-light mt-2" (click)="post_courses()">cadastrar curso</button>
                 </div>

@@ -11,17 +11,17 @@ import axios from 'axios';
 })
 export class CourseuploadComponent implements OnInit {
   server = 'http://localhost:3000';
-  nome: string;
+  title: string;
+  price: number;
   link: string;
-  descricao: string;
-  image: string;
-
-  constructor() {this.nome="";this.link = "";this.descricao = "",this.image = ""}
-  ngOnInit(): void {this.nome="";}
+  desc: string;
+  img: string;
+  constructor() {this.title="";this.price = 0;this.link = "";this.desc = "",this.img = ""}
+  ngOnInit(): void {this.title="";}
 
   async post_courses(){
     await axios.post((this.server + '/Courseupload'),{
-      coursename:this.nome,link:this.link,descricao:this.descricao,image:this.image
+      title:this.title,link:this.link,desc:this.desc,img:this.img, price:this.price
     })
     .then(function (response) {
       console.log(response);
