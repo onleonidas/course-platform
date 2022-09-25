@@ -155,13 +155,8 @@ function get_person_course(person){
   }
 }
 
-let course_bought = "";
-app.post('/TryingToBuy',function(req,res){
-  this.person_bought.course = req.body;
-});
-
-//send back to front the course information given a course name
-app.post('/CourseInfo',function(req,res){
+//send back to front the course information giver a course
+app.post('/Buycourses',function(req,res){
   fs.readFile("data_courses.txt", function (err, data) {
     if (err) {
       return console.error(err);
@@ -172,13 +167,13 @@ app.post('/CourseInfo',function(req,res){
       resp += dados[i];
       if(dados[i] == '}'){
         //rasp has one json here
-        let json1 = JSON.parse(resp)
-        if(json1.nome==req.body){
-          res.end(json1)
+        console.log((JSON.parse(resp)).nome)
+        if(((JSON.parse(resp)).nome) == req.body.coursename){
+          res.end(((JSON.stringify(resp))));
           i = dados.length;
         }
         resp = '';
-        i++;
+        i+=1;
       }
     }
   });
