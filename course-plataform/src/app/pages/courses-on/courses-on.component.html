@@ -3,11 +3,11 @@
     <div class="row hidden-md-up" >
         <div class="col-md-4" *ngFor="let course of array_cursos">
             <div class="card py-2 px-2 my-2">
-                <img src={{course.image}} class="card-img-top" alt="...">
+                <img src={{course.img}} class="card-img-top" alt="...">
                 <div class="card-block">
-                    <h5 class="card-title">{{course.nome}}</h5>
-                    <p class="card-text">{{course.descricao}}</p>
-                    <a href="#" class="btn button_color text-light" [routerLink]="['/Buycourses',course.nome]">Go somewhere</a>
+                    <h5 class="card-title">{{course.title}}</h5>
+                    <p class="card-text">{{course.desc}}</p>
+                    <a href="#" class="btn button_color text-light" [routerLink]="['/Buycourses',course.id]">Go somewhere</a>
                 </div>
             </div>
         </div>

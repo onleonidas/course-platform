@@ -23,18 +23,7 @@ export class CoursesOnComponent implements OnInit {
   public open(name: String) {
     alert('Open ' + name);
   }
-  async test(){
-    await axios.post((this.server + '/PersonConfig'),{
-      name: "jose",info:"course"
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
 
-  }
   async CourseInfo(){
     console.log(this.param.snapshot.paramMap.get('name'))
     await axios.post((this.server + '/Buycourses'),{
@@ -60,15 +49,7 @@ export class CoursesOnComponent implements OnInit {
     })
     }
     data1().then(data => {
-      let dados = data;
-      let resp = ""
-      for (var i = 0; i < dados.length; i++) {
-        resp += dados[i];
-        if(dados[i] == '}'){
-          this.array_cursos.push(JSON.parse(resp));
-          resp = '';
-        }
-      }
+      this.array_cursos = data;
     })
   }
   

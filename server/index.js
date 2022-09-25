@@ -19,7 +19,7 @@ const writeFile = (content) => {
 }
 
 //pega todos os elementos
-router.get('/', (req, res) => {
+router.get('/Courseon', (req, res) => {
     const content = readFile()
     res.send(content)
 })
