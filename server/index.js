@@ -18,6 +18,8 @@ const writeFile = (content) => {
     fs.writeFileSync('./items.json', updatedFile, 'utf-8')
 }
 
+
+
 //pega todos os elementos
 router.get('/Courseon', (req, res) => {
     const content = readFile()
@@ -52,7 +54,17 @@ router.delete('/:id', (req, res) => {
     currentContent.splice(selectedItem, 1)
     writeFile(currentContent)
     res.send("item apagado")
+})
 
+const readFileNotifications = () => {
+    const content = fs.readFileSync('./notifications.json', 'utf-8')
+    return JSON.parse(content)
+}
+//pega a notificação
+router.get('/Popup',(req,res) => {
+    const rfn = readFileNotifications()
+    let rand = Math.floor(Math.random() * 4);
+    res.send(rfn[rand])
 })
 
 server.use(router)
