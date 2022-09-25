@@ -23,15 +23,24 @@ export class CoursesOnComponent implements OnInit {
   public open(name: String) {
     alert('Open ' + name);
   }
+  async test(){
+    await axios.post((this.server + '/PersonConfig'),{
+      name: "jose",info:"course"
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
+  }
   async CourseInfo(){
     console.log(this.param.snapshot.paramMap.get('name'))
     await axios.post((this.server + '/Buycourses'),{
       coursename: (this.param.snapshot.paramMap.get('name')),
       
     })
-
-    
     .then(function (response) {
       console.log(response);
     })

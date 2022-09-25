@@ -52,12 +52,14 @@ function filewrite(st,path_file){
     })
 }
 
+//save a course
 app.post('/Courseupload', function requestHandler(req, res) {
     console.log(req.body);
     filewrite(JSON.stringify(req.body),"data_courses.txt");
     res.end('Hello, World!');
 });
 
+//send courses saved to front
 app.get('/Courseon', function(req,res){
   //js he tao ruim q n deixa eu transformar isso numa funcao
   fs.readFile("data_courses.txt", function (err, data) {
@@ -68,6 +70,7 @@ app.get('/Courseon', function(req,res){
   });
 });
 
+//chose a random course and send back to front
 let is_pop = Boolean;
 app.get('/Popup',function(req,res){
   if(typeof(this.is_pop)=="undefined"){
@@ -99,6 +102,7 @@ app.get('/Popup',function(req,res){
   }
 })
 
+//change not app
 app.post('/ChangeNoti', function requestHandler(req, res) {
   if(this.is_pop){
     this.is_pop = false;
@@ -147,11 +151,11 @@ function get_person_course(person){
       }
     });
   }catch{
-
+    fs.writeFileSync(person+".txt", person);
   }
 }
 
-//send back to front the course information giver a course
+//send back to front the course information given a course
 app.post('/Buycourses',function(req,res){
   fs.readFile("data_courses.txt", function (err, data) {
     if (err) {
@@ -163,7 +167,7 @@ app.post('/Buycourses',function(req,res){
       resp += dados[i];
       if(dados[i] == '}'){
         //rasp has one json here
-        console.log((JSON.parse(resp)).nome)
+        //console.log((JSON.parse(resp)).nome)
         if(((JSON.parse(resp)).nome) == req.body.coursename){
           res.end(((JSON.stringify(resp))));
           i = dados.length;
@@ -174,3 +178,43 @@ app.post('/Buycourses',function(req,res){
     }
   });
 });
+
+//return person config
+app.post('/PersonConfig', function(req,res){
+  console.log("data receive with name: " + req.body.name);
+  console.log("trying to get:" + req.body.info);
+  try{
+    fs.readFile(req.body.name+".txt", function (err, data) {
+      if (err) {
+        return console.error(err);
+      }
+      var listOfObjects = [];
+      listOfObjects = get_jsons(data.toString())
+      console.log(listOfObjects.length)
+      for (var i = 0; i < listOfObjects.length; i++) {
+        console.log(typeof(JSON.parse(JSON.stringify(listOfObjects[0]))))
+      }
+      //res.end(listOfObjects)
+    });
+  }catch{
+    res.end("no data")
+  }
+});
+
+//this function returns a json property given a string
+function get_jsons(data){
+  let dados = data;
+  let resp = ""
+  var listOfObjects = [];
+  for (var i = 0; i < dados.length; i++) {
+    resp += dados[i];
+    if(dados[i] == '}'){
+      i++;
+      resp += dados[i];
+      listOfObjects.push(JSON.parse(JSON.stringify(resp)))
+      resp = '';
+      i+=2;
+    }
+  }
+  return listOfObjects;
+}
