@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { json } from 'body-parser';
 import axios from 'axios';
+
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 
 
 @Component({
@@ -34,5 +37,4 @@ export class BuycourseComponent implements OnInit {
     });
 
   }
-
 }

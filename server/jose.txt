@@ -1,0 +1,3 @@
+'{"curso":"python"}'
+'{"curso":"docker"}'
+'{"curso":"kubernetes"}'
