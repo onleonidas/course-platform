@@ -18,8 +18,6 @@ const writeFile = (content) => {
     fs.writeFileSync('./items.json', updatedFile, 'utf-8')
 }
 
-
-
 //pega todos os elementos
 router.get('/Courseon', (req, res) => {
     const content = readFile()
@@ -65,6 +63,73 @@ router.get('/Popup',(req,res) => {
     const rfn = readFileNotifications()
     let rand = Math.floor(Math.random() * 4);
     res.send(rfn[rand])
+})
+
+//======= settings
+//retorna o status de configuração de um usuario
+const readFileConfig = () => {
+    const content = fs.readFileSync('./user-config.json', 'utf-8')
+    return JSON.parse(content)
+}
+//retorna a config dado o user
+router.post('/getNotiConfig',(req,res) => {
+    const user_data = readFileConfig()
+    try{
+        var i = 0;
+        while(true){
+            if(user_data[i].name==req.body.name){
+                break;
+            }else{
+                i++;
+            }
+        }
+    }catch{
+        res.send("could not find data")
+    }
+    res.send(user_data[i])
+})
+
+//recebe um nome q ja existe e atualiza o banco
+const updateFileConfig = (content,newdata) => {
+    const user_data = readFileConfig();
+    var i = 0;
+    try{
+        while(true){
+            if(user_data[i].name == content){
+                user_data[i].notfication_config = newdata;
+                break;
+            }
+            i++;
+        }
+    }catch{
+        console.log("could not update file")
+    }
+    fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8')
+}
+//muda a notificacao de usuario
+router.post('/ChangeNoti',(req,res) => {
+    const user_data = readFileConfig()
+    try{
+        var i = 0;
+        while(true){
+            if(user_data[i].name==req.body.name){
+                break;
+            }else{
+                i++;
+            }
+        }
+        str1 = "I want to receive promotion notification";
+        str2 = "I do not want to recieve promotion notification";
+        if(user_data[i].notfication_config==str1){
+            updateFileConfig(req.body.name,str2);
+            res.send(str2);
+        }else{
+            updateFileConfig(req.body.name,str1);
+            res.send(str1);
+        }
+    }catch{
+        res.send("could not find data")
+    }
 })
 
 server.use(router)

@@ -9,33 +9,21 @@ import axios from 'axios';
 export class SettingsComponent implements OnInit {
   notification_status: "";
   server = 'http://localhost:3000';
-
   constructor() {this.notification_status = "" }
 
   ngOnInit(): void {
     this.get_noti_status();
   }
   async get_noti_status(){
-    const data1 = () => {return axios.get(this.server + '/getNoti', {})
-    .then(function (response) {
-      return response.data;
+    let resp = await axios.post(this.server + '/getNotiConfig', {
+      name: "michel"//trocar por nome do usuario
     })
-    .catch(function (error) {
-      console.log(error);
-    })}
-    data1().then(data => {
-      this.notification_status = data;
-    })
+    this.notification_status = resp.data.notfication_config;
   }
   async change_noti(){
-    await axios.post((this.server + '/ChangeNoti'),{
+    let resp = await axios.post((this.server + '/ChangeNoti'),{
+      name: "michel"//trocar por nome do usuario
     })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-    this.get_noti_status();
+    this.notification_status = resp.data;
   }
 }
