@@ -5,9 +5,9 @@
             <div class="card py-2 px-2 my-2">
                 <img src={{course.image}} class="card-img-top" alt="...">
                 <div class="card-block">
-                <h5 class="card-title">{{course.nome}}</h5>
-                <p class="card-text">{{course.descricao}}</p>
-                <a href="#" class="btn button_color text-light" routerLink={{course.link}} routerLinkActive="active-link">Go somewhere</a>
+                    <h5 class="card-title">{{course.nome}}</h5>
+                    <p class="card-text">{{course.descricao}}</p>
+                    <a href="#" class="btn button_color text-light" [routerLink]="['/Buycourses',course.nome]">Go somewhere</a>
                 </div>
             </div>
         </div>
