@@ -2,12 +2,16 @@ import { Component, OnInit , Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import axios from 'axios';
 import { AuthService } from 'src/app/services/auth.service';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+
+
 @Injectable()
 export class LoginComponent implements OnInit {
 
@@ -15,15 +19,20 @@ export class LoginComponent implements OnInit {
   password : string = '';
 
   constructor(private auth : AuthService) {
-
   }
+
+
+  
 
   server = 'http://localhost:3000';
   state = {
     person: ""
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  
 
   login() {
     if (this.email == ''){
@@ -37,8 +46,14 @@ export class LoginComponent implements OnInit {
     }
 
     this.auth.login(this.email, this.password);
+    console.log(this.email);
     this.email = '';
     this.password = '';
   }
+  
+
+  
 }
+
+
 
