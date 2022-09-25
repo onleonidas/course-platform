@@ -59,10 +59,27 @@ const readFileNotifications = () => {
     return JSON.parse(content)
 }
 //pega a notificação
-router.get('/Popup',(req,res) => {
+router.post('/Popup',(req,res) => {
     const rfn = readFileNotifications()
-    let rand = Math.floor(Math.random() * 4);
-    res.send(rfn[rand])
+    const rfc = readFileConfig()
+    try{
+        var i = 0;
+        while(true){
+            if(rfc[i].name==req.body.name){
+                break;
+            }else{
+                i++;
+            }
+        }
+    }catch{
+        res.send("no notification");
+    }
+    if(rfc[i].notfication_config= "I want to recieve promotion notification"){
+        let rand = Math.floor(Math.random() * 4);
+        res.send(rfn[rand]);
+    }else{
+        res.send("no notification");
+    }
 })
 
 //======= settings
