@@ -150,3 +150,27 @@ function get_person_course(person){
 
   }
 }
+
+//send back to front the course information giver a course
+app.post('/Buycourses',function(req,res){
+  fs.readFile("data_courses.txt", function (err, data) {
+    if (err) {
+      return console.error(err);
+    }
+    let dados = data.toString();
+    let resp = ""
+    for (var i = 0; i < dados.length; i++) {
+      resp += dados[i];
+      if(dados[i] == '}'){
+        //rasp has one json here
+        console.log((JSON.parse(resp)).nome)
+        if(((JSON.parse(resp)).nome) == req.body.coursename){
+          res.end(((JSON.stringify(resp))));
+          i = dados.length;
+        }
+        resp = '';
+        i+=1;
+      }
+    }
+  });
+});
