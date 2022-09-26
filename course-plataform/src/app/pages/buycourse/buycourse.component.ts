@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser'; 
 
 
 
@@ -43,3 +44,4 @@ export class BuycourseComponent implements OnInit {
   }
   
 }
+
