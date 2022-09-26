@@ -38,10 +38,11 @@ router.post('/Courseupload', (req, res) => {
 
 
 //pega por index
-router.put('/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const currentContent = readFile()
     const {id} = req.params
     const selectedItem = currentContent.find((item) => item.id === id)
+    console.log(selectedItem)
     res.send(selectedItem)
 })
 

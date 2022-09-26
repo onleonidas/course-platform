@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import axios from 'axios';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { json } from 'body-parser';
-import axios from 'axios';
 
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+
 
 
 @Component({
@@ -15,26 +13,33 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 })
 export class BuycourseComponent implements OnInit {
   server = 'http://localhost:3000';
+  array_cursos: any[]
+  nomes: string[];
+  links: string[];
+  desc: string[];
+  imagens: string[];
+  constructor(private param: ActivatedRoute) {this.nomes = [];this.links = [];this.desc = [];this.imagens = [];
+    this.array_cursos = [];}
+  ngOnInit(): void {this.get_courses();}
 
-  constructor(private param:ActivatedRoute) { }
-  getNameCourse:any;
-  courseData:any;
+  async get_courses(){
+  
+    const link = window.location.href
+    const strs = link.split('/');
+    console.log(strs)
+    const id = strs.at(-1)
 
-  ngOnInit(): void {
-    this.getNameCourse = this.param.snapshot.paramMap.get('name');
-  }
-
-  async CourseInfo(){
-
-    await axios.post((this.server + '/Buycourses'),{
-      coursename: (this.param.snapshot.paramMap.get('name'))
-    })
+    const data1 = () => {return axios.get(this.server + "/"+id, {})
     .then(function (response) {
-      console.log(response);
+      return response.data;
     })
     .catch(function (error) {
       console.log(error);
-    });
-
+    })
+    }
+    data1().then(data => {
+      this.array_cursos = [data];
+    })
   }
+  
 }
