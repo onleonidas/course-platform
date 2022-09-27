@@ -37,4 +37,19 @@ export class BuycourseComponent implements OnInit {
     });
 
   }
+
+  async requestCertificate() {
+
+    await axios.post((this.server + '/Getcertificate'), {
+      name: "Natália",
+      // coursename: (this.param.snapshot.paramMap.get('name'))
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+
+  }
 }

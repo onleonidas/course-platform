@@ -18,14 +18,19 @@ const writeFile = (content) => {
     fs.writeFileSync('./items.json', updatedFile, 'utf-8')
 }
 
-
-
 //pega todos os elementos
 router.get('/Courseon', (req, res) => {
     const content = readFile()
     res.send(content)
 })
 
+//pega o certificado de conclusão
+// router.post('/Getcertificate', (req, res) => {
+//     const { name, course, description, progress } = req.body
+//     const currentContent = readFile()
+//     writeFile(currentContent)
+//     res.send({ name, course, description, progress })
+// })
 
 // cria novo elemento
 router.post('/Courseupload', (req, res) => {
@@ -73,4 +78,3 @@ server.use(express.json())
 server.listen(3000, () =>{
     console.log("Servidor online, Hawking.")
 })
-
