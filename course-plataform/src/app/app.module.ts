@@ -34,6 +34,7 @@ import { provideFirestore,getFirestore, FirestoreModule } from '@angular/fire/fi
 import { FormsModule } from '@angular/forms';
 import { CoursesOnComponent } from './pages/courses-on/courses-on.component';
 import { MycoursesComponent } from './pages/mycourses/mycourses.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { MycoursesComponent } from './pages/mycourses/mycourses.component';
     UploadCourseComponent,
     CourseuploadComponent,
     CoursesOnComponent,
-    MycoursesComponent
+    MycoursesComponent,
+    SafePipe
     
   ],
   imports: [

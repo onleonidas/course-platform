@@ -17,7 +17,7 @@ export const ROUTES: Routes = [
     { path: '', component: HomeComponent },
     { path: 'Login', component: LoginComponent },
     { path: 'Register', component: RegisterComponent },
-    { path: 'Buycourse', component: BuycourseComponent },
+    { path: 'Buycourse/:id', component: BuycourseComponent },
     { path: 'Payment', component: PaymentComponent },
     { path: 'Certificate', component: CertificateComponent },
     { path: 'Export', component: ExportComponent },

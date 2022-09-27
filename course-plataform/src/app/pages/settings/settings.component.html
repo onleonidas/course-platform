@@ -3,10 +3,9 @@
     <div class="card">
         <div class="d-flex justify-content-between card-body ">
             <div>
-                I want to receive promotions notifications
+                {{notification_status}}
             </div>
             <div class="form-check form-switch">
-                <div>{{notification_status}}</div>
                 <button type="button" (click)="change_noti()" class="btn btn-primary">change</button>
             </div>
         </div>

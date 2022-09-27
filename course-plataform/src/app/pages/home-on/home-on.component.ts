@@ -14,19 +14,24 @@ export class HomeOnComponent implements OnInit {
   is_pop: Boolean;
   pop_name: string;
 
-  constructor() {this.is_pop = true;this.pop_name = "";}
+  is_runnig: boolean;
+  constructor() {this.is_runnig=true;this.is_pop = true;this.pop_name = "";}
 
   ngOnInit(): void {this.runnig_pop();}
 
   async runnig_pop(){
     await setTimeout(() => {
-      this.get_pop_up();
-      this.runnig_pop();
-      console.log("to entendendo he nada")
-    }, 20000);
+      if(this.is_runnig){
+        this.get_pop_up();
+        this.runnig_pop();
+        console.log("to entendendo he nada");
+      }
+    }, 10000);
   }  
   async get_pop_up(){
-    let resp = await axios.get(this.server + '/Popup', {})
+    let resp = await axios.post(this.server + '/Popup', {
+      name: "michel"//lembrar de substituir
+    })
     if(resp.data.noti != 'no notification'){
       console.log("mostre uma prom");
       try{
@@ -38,5 +43,5 @@ export class HomeOnComponent implements OnInit {
       }
     }
   }
-
+  ngOnDestroy(){this.is_runnig=false;console.log("destroying home on");}
 }
