@@ -1,6 +1,10 @@
 <div class="area">
     <div class="container_1 p-5">
         <app-certificate></app-certificate>
-        <button class="button text-light mt-3" routerLinkActive="active-link">Export</button>       
+        <button class="button text-light mt-3" routerLinkActive="active-link">Export</button>     
+        <div class="buttons-section d-flex w-100">
+            <button class="btn btn-secondary text-light mt-3" (click)="generateCertificate()" routerLinkActive="active-link">Generate Certificate</button>
+            <button class="btn btn-primary text-light mt-3 ml-3" routerLinkActive="active-link">Export</button>
+        </div>  
     </div>
 </div>

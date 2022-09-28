@@ -150,6 +150,16 @@ router.post('/ChangeNoti',(req,res) => {
     }
 })
 
+//devolve certificado TESTE
+router.post('/getCertificate', (req,res) => {
+    // const user_data = readFileConfig()
+    try{
+        res.send(req.body)
+    }catch{
+        res.send("could not find data")
+    }
+})
+
 server.use(router)
 server.use(express.json())
 
