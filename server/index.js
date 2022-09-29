@@ -151,7 +151,7 @@ router.post('/ChangeNoti',(req,res) => {
 })
 
 //devolve certificado TESTE
-router.post('/getCertificate', (req,res) => {
+router.post('/generateCertificate', (req,res) => {
     // const user_data = readFileConfig()
     try{
         res.send(req.body)

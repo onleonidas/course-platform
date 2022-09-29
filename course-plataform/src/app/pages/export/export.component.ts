@@ -15,6 +15,10 @@ export class ExportComponent implements OnInit {
   }
 
   async generateCertificate() {
+    // await axios.get(this.server + "/generateCertificate", {
+    //   name: "Natália",
+    // })
+
     await axios.post(this.server + "/generateCertificate", {
       name: "Natália",
     })
