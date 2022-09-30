@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import axios from 'axios';
 
 @Component({
@@ -8,20 +10,26 @@ import axios from 'axios';
 })
 export class ExportComponent implements OnInit {
   server = 'http://localhost:3000';
+  userData:any = undefined;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  async generateCertificate() {
-    // await axios.get(this.server + "/generateCertificate", {
-    //   name: "Natália",
-    // })
+  async getUserData() {
+    const auth = getAuth();
+    const user = auth.currentUser;
 
-    await axios.post(this.server + "/generateCertificate", {
-      name: "Natália",
-    })
+    this.userData = user;
+    console.log(this.userData);
+  }
+
+  async generateCertificate() {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    await axios.post(this.server + "/generateCertificate", { user })
       .then(response => {
         console.log(response);
       })
