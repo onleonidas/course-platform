@@ -172,7 +172,6 @@ router.get('/GetAllNot',(req,res) => {
 // Adiciona um curso a um usuario
 // passar um json com name: e id: 
 router.post('/AddCourse',(req,res) => {
-    console.log('estou aq')
     const user_data = readFileConfig()
     try{
         let found_user = user_data.find(curr_user => curr_user.name === req.body.name);
