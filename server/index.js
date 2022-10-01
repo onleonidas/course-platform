@@ -167,6 +167,31 @@ router.get('/GetAllNot',(req,res) => {
     const rfc = readFile()
     res.send(rfc);
 })
+
+//================================================
+// Adiciona um curso a um usuario
+// passar um json com name: e id: 
+router.post('/AddCourse',(req,res) => {
+    const user_data = readFileConfig()
+    try{
+        var i = 0;
+        while(true){
+            if(user_data[i].name==req.body.name){
+                break;
+            }else{
+                i++;
+            }
+        }
+        const array_courses = user_data[i].courses_owned
+        array_courses.push(req.body.id)
+        user_data[i].courses_owned = array_courses
+        fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8')
+    }catch{
+        res.send("could not find user")
+    }
+})
+
+
 server.use(router)
 server.use(express.json())
 
