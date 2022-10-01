@@ -93,7 +93,7 @@ const readFileConfig = () => {
     return JSON.parse(content)
 }
 //retorna a config dado o user
-router.post('/getNotiConfig',(req,res) => {
+router.post('/getConfig',(req,res) => {
     const user_data = readFileConfig()
     try{
         var i = 0;
@@ -158,7 +158,6 @@ router.post('/SaveUserConfig',(req,res) => {
     const read_user_data = readFileConfig() 
     const new_user_data = req.body
     read_user_data.push(new_user_data)
-    console.log("recebi os dados: " + JSON.stringify(read_user_data))
     fs.writeFileSync('./user-config.json', JSON.stringify(read_user_data), 'utf-8')
 })
 

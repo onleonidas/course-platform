@@ -15,7 +15,7 @@ export class SettingsComponent implements OnInit {
     this.get_noti_status();
   }
   async get_noti_status(){
-    let resp = await axios.post(this.server + '/getNotiConfig', {
+    let resp = await axios.post(this.server + '/getConfig', {
       name: "michel"//trocar por nome do usuario
     })
     this.notification_status = resp.data.notfication_config;
