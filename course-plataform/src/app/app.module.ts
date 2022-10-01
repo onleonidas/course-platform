@@ -35,6 +35,7 @@ import { FormsModule } from '@angular/forms';
 import { CoursesOnComponent } from './pages/courses-on/courses-on.component';
 import { MycoursesComponent } from './pages/mycourses/mycourses.component';
 import { SafePipe } from './safe.pipe';
+import { NgxPrintModule } from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { SafePipe } from './safe.pipe';
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule
+    FormsModule,
+    NgxPrintModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
