@@ -45,11 +45,18 @@
 }
 
 button {
-    margin-left: 8px;
+    height: 50px;
+    font-size: 13px;
+}
+
+.btn2{
+    height: 50px;
+    font-size: 13px;
+    margin: 5px;
 }
 
 
-@media screen and (max-width: 1330px) {
+@media screen and (max-width: 1200px) {
     .login {
         display: none;
     }

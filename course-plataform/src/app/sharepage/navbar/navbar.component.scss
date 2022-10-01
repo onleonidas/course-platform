@@ -1,5 +1,7 @@
 .button {
     background-color: #6527F0;
+    width: auto;
+    height: 50px;
 }
 
 .navbar-toggler {
@@ -13,9 +15,5 @@
 }
 
 @media screen and (max-width: 1330px) {
-    .respon-button {
-        margin-top: 5vh;
-    }
-    
 
 }
