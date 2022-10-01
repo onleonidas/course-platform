@@ -174,10 +174,11 @@ router.get('/GetAllNot',(req,res) => {
 router.post('/AddCourse',(req,res) => {
     const user_data = readFileConfig()
     try{
+        var i = 0;
         let found_user = user_data.find(curr_user => curr_user.name === req.body.name);
         const array_courses = found_user.courses_owned
-        array_courses.push(req.body.id)
-        found_user.courses_owned = array_courses
+        array_courses.push({"course_id": req.body.id, "user_course_progress": 0})
+        user_data[i].courses_owned = array_courses
         fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8')
     }catch{
         res.send("could not find user")
