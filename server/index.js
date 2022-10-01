@@ -4,6 +4,7 @@ const router = express.Router()
 const fs = require('fs')
 const { send } = require('process')
 const cors = require('cors');
+const { Console } = require('console')
 
 server.use(express.json({extended: true}))
 server.use(cors())
@@ -149,6 +150,17 @@ router.post('/ChangeNoti',(req,res) => {
         res.send("could not find data")
     }
 })
+
+
+router.post('/SaveUserConfig',(req,res) => {
+    const read_user_data = readFileConfig() 
+    const new_user_data = req.body
+    read_user_data.push(new_user_data)
+    console.log("recebi os dados: " + JSON.stringify(read_user_data))
+    fs.writeFileSync('./user-config.json', JSON.stringify(read_user_data), 'utf-8')
+})
+
+//================================================
 
 server.use(router)
 server.use(express.json())
