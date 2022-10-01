@@ -1,5 +1,6 @@
 .button {
     background-color: #6527F0;
+    height: 50px;
 }
 
 .navbar-toggler {
@@ -13,13 +14,13 @@
 }
 
 .icon{
-    font-size: 25px;
+    font-size: 20px;
     color: white;
 }
 
 .img-circle{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
     border-width: 2px; // Estiliza a sua largura
     border-style: solid; // Estiliza seu estilo
@@ -28,9 +29,6 @@
 }
 
 @media screen and (max-width: 1330px) {
-    .respon-button {
-        margin-top: 5vh;
-    }
     
 
 }

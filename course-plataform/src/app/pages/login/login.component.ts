@@ -21,9 +21,6 @@ export class LoginComponent implements OnInit {
   constructor(private auth : AuthService) {
   }
 
-
-  
-
   server = 'http://localhost:3000';
   state = {
     person: ""
@@ -31,9 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   
-
   login() {
     if (this.email == ''){
       alert('Please enter email')
@@ -44,15 +39,11 @@ export class LoginComponent implements OnInit {
       alert('Please enter password')
       return;
     }
-
     this.auth.login(this.email, this.password);
     console.log(this.email);
     this.email = '';
     this.password = '';
   }
-  
-
-  
 }
 
 

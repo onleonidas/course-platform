@@ -37,7 +37,16 @@ export class RegisterComponent implements OnInit {
     }
 
     this.auth.register(this.email, this.password);
+    console.log("oxe")
+    this.save_config(this.email)
     this.email = '';
     this.password = '';
+  }
+
+  async save_config(log: any){
+    let resp = await axios.post(this.server + '/SaveUserConfig', {
+      name: log,notfication_config:"I want to receive promotion notification",
+      courses_owned:["",""]//lembrar de substituir
+    })
   }
 }
