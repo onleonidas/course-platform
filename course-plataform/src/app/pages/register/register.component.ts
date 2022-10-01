@@ -44,8 +44,10 @@ export class RegisterComponent implements OnInit {
   }
 
   async save_config(log: any){
-    let resp = await axios.post(this.server + '/SaveUserConfig', {
-      name: this.email,notfication_config:"I want to receive promotion notification",
+    await axios.post(this.server + '/SaveUserConfig', {
+      name: this.email,
+      email: this.email,
+      notfication_config:"I want to receive promotion notification",
       courses_owned:[]//lembrar de substituir.
     })
   }

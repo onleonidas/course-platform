@@ -170,22 +170,49 @@ router.get('/GetAllNot',(req,res) => {
 
 //================================================
 // Adiciona um curso a um usuario
-// passar um json com name: e id: 
+// passar um json com name: e course_id: 
 router.post('/AddCourse',(req,res) => {
     const user_data = readFileConfig()
     try{
-        var i = 0;
-        let found_user = user_data.find(curr_user => curr_user.name === req.body.name);
-        const array_courses = found_user.courses_owned
-        array_courses.push({"course_id": req.body.id, "user_course_progress": 0})
-        user_data[i].courses_owned = array_courses
-        fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8')
+        let found_user = user_data.find(curr_user => curr_user.email === req.body.email);
+        const array_courses = found_user.courses_owned;
+
+        const new_course = {
+            course_id: req.body.course_id,
+            user_course_progress: 0
+        }
+
+        array_courses.push(new_course);
+        found_user.courses_owned = array_courses;
+        fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8');
+
+        res.send(200);
     }catch{
-        res.send("could not find user")
+        res.send("could not find user");
     }
 })
 
+//================================================
+//altera o progresso do usuário no curso
+//recebe um json com email do usuário, o curso que vai ser atualizado e +1 ou -1 para caso o progresso seja positivo ou negativo
+router.post('/updateCouseProgress',(req,res) => {
+    const user_data = readFileConfig()
+    try{
+        const found_user = user_data.find(curr_user => curr_user.email === req.body.email);
+        const course_to_update = found_user.courses_owned.find(course => course.course_id === req.body.course_id);
+        course_to_update.user_course_progress += req.body.progress_update;
+        if (course_to_update.user_course_progress < 0) 
+            course_to_update.user_course_progress = 0;
+            
+        fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8');
 
+        res.send(200);
+    }catch{
+        res.send("could not find course");
+    }
+})
+
+//================================================
 //devolve certificado TESTE
 router.post('/generateCertificate', (req,res) => {
     // const user_data = readFileConfig()
