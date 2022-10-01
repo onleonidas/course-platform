@@ -1,4 +1,0 @@
-{"noti":"you won a python course","link":""}
-{"noti":"you won 45%off a kubernetes course","link":""}
-{"noti":"you won a docker course","link":""}
-{"noti":"what about uploading a course?","link":""}
