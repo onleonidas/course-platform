@@ -31,7 +31,7 @@ export class HomeOnComponent implements OnInit {
     let resp = await axios.post(this.server + '/Popup', {
       name: "michel"//lembrar de substituir
     })
-    if(resp.data.noti != "no notification"){
+    if(resp.data != "no notification"){
       console.log("mostre uma prom");
       console.log(JSON.stringify(resp.data))
       try{
