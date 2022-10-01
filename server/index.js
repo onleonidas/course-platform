@@ -174,13 +174,19 @@ router.get('/GetAllNot',(req,res) => {
 router.post('/AddCourse',(req,res) => {
     const user_data = readFileConfig()
     try{
-        let found_user = user_data.find(curr_user => curr_user.name === req.body.name);
-        const array_courses = found_user.courses_owned
-        array_courses.push(req.body.id)
-        found_user.courses_owned = array_courses
-        fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8')
+        let found_user = user_data.find(curr_user => curr_user.email === req.body.email);
+        const array_courses = found_user.courses_owned;
+
+        const new_course = {
+            course_id: req.body.id,
+            user_course_progress: 0
+        }
+
+        array_courses.push(new_course);
+        found_user.courses_owned = array_courses;
+        fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8');
     }catch{
-        res.send("could not find user")
+        res.send("could not find user");
     }
 })
 
