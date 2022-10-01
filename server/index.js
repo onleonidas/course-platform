@@ -62,6 +62,30 @@ const readFileNotifications = () => {
 }
 //pega a notificação
 router.post('/Popup',(req,res) => {
+    const rfn = readFile()
+    const rfc = readFileConfig()
+    try{
+        var i = 0;
+                while(true){
+                    if(rfc[i].name==req.body.name){
+                        break;
+                    }else{
+                        i++;
+                    }
+                }
+    }catch{
+        res.send("no notification");
+    }
+    if(i>=4){i = 3}
+    if(rfc[i].notfication_config== "I want to receive promotion notification"){
+        var count = Object.keys(rfn).length;
+        let rand = Math.floor(Math.random() * count);
+        res.send(rfn[rand]);
+    }else{
+        res.send("no notification");
+    }
+
+    /*
     const rfn = readFileNotifications()
     const rfc = readFileConfig()
     try{
@@ -76,12 +100,15 @@ router.post('/Popup',(req,res) => {
     }catch{
         res.send("no notification");
     }
-    if(rfc[i].notfication_config= "I want to recieve promotion notification"){
+    if(i>=4){i = 3}
+    console.log(rfc[i].notfication_config)
+    if(rfc[i].notfication_config== "I want to receive promotion notification"){
         let rand = Math.floor(Math.random() * 4);
+        console.log(rfn[i])
         res.send(rfn[rand]);
     }else{
         res.send("no notification");
-    }
+    }*/
 })
 
 //======= settings
