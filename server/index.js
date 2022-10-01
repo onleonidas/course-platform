@@ -194,6 +194,7 @@ router.post('/AddCourse',(req,res) => {
 
 //================================================
 //altera o progresso do usuário no curso
+//recebe um json com email do usuário, o curso que vai ser atualizado e +1 ou -1 para caso o progresso seja positivo ou negativo
 router.post('/updateCouseProgress',(req,res) => {
     const user_data = readFileConfig()
     try{
