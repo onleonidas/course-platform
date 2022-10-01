@@ -60,7 +60,7 @@ const readFileNotifications = () => {
     const content = fs.readFileSync('./notifications.json', 'utf-8')
     return JSON.parse(content)
 }
-//pega a notificação
+//retorna uma promocao aleatoria
 router.post('/Popup',(req,res) => {
     const rfn = readFile()
     const rfc = readFileConfig()
@@ -84,31 +84,6 @@ router.post('/Popup',(req,res) => {
     }else{
         res.send("no notification");
     }
-
-    /*
-    const rfn = readFileNotifications()
-    const rfc = readFileConfig()
-    try{
-        var i = 0;
-        while(true){
-            if(rfc[i].name==req.body.name){
-                break;
-            }else{
-                i++;
-            }
-        }
-    }catch{
-        res.send("no notification");
-    }
-    if(i>=4){i = 3}
-    console.log(rfc[i].notfication_config)
-    if(rfc[i].notfication_config== "I want to receive promotion notification"){
-        let rand = Math.floor(Math.random() * 4);
-        console.log(rfn[i])
-        res.send(rfn[rand]);
-    }else{
-        res.send("no notification");
-    }*/
 })
 
 //======= settings
@@ -178,7 +153,7 @@ router.post('/ChangeNoti',(req,res) => {
     }
 })
 
-
+//salva um novo usario 
 router.post('/SaveUserConfig',(req,res) => {
     const read_user_data = readFileConfig() 
     const new_user_data = req.body
@@ -188,7 +163,11 @@ router.post('/SaveUserConfig',(req,res) => {
 })
 
 //================================================
-
+//retorna todos os cursos
+router.get('/GetAllNot',(req,res) => {
+    const rfc = readFile()
+    res.send(rfc);
+})
 server.use(router)
 server.use(express.json())
 
