@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { AuthService } from 'src/app/services/auth.service';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 @Component({
   selector: 'app-settings',
@@ -9,20 +11,25 @@ import axios from 'axios';
 export class SettingsComponent implements OnInit {
   notification_status: "";
   server = 'http://localhost:3000';
-  constructor() {this.notification_status = "" }
-
+  userData: any
+  constructor() {this.notification_status = "", this.userData}
+  
   ngOnInit(): void {
     this.get_noti_status();
   }
   async get_noti_status(){
+    const auth = getAuth();
+    const user = auth.currentUser;
     let resp = await axios.post(this.server + '/getConfig', {
-      name: "michel"//trocar por nome do usuario
+      name: user?.email//trocar por nome do usuario
     })
     this.notification_status = resp.data.notfication_config;
   }
   async change_noti(){
+    const auth = getAuth();
+    const user = auth.currentUser;
     let resp = await axios.post((this.server + '/ChangeNoti'),{
-      name: "michel"//trocar por nome do usuario
+      name: user?.email//trocar por nome do usuario
     })
     this.notification_status = resp.data;
   }

@@ -35,7 +35,7 @@ export class HomeOnComponent implements OnInit {
       console.log("mostre uma prom");
       console.log(JSON.stringify(resp.data))
       try{
-        this.pop_name ="are you interested in" + resp.data.title + " ?";
+        this.pop_name ="are you interested in " + resp.data.title + " ?";
         this.link = resp.data.link;
         var elemento = document.getElementById("openModalButton");
         elemento?.click();
