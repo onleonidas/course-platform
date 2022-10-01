@@ -185,6 +185,8 @@ router.post('/AddCourse',(req,res) => {
         array_courses.push(new_course);
         found_user.courses_owned = array_courses;
         fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8');
+
+        res.send(200);
     }catch{
         res.send("could not find user");
     }
