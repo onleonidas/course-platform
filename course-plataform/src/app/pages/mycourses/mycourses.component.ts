@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { AuthService } from 'src/app/services/auth.service';
 import { json } from 'body-parser';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mycourses',
@@ -38,7 +39,9 @@ export class MycoursesComponent implements OnInit {
       }
       data1().then(data => {
         this.array_cursos = [data];
-        console.log(this.array_cursos)
+        console.log('a', this.array_cursos)
       })
+
+
   }
 }
