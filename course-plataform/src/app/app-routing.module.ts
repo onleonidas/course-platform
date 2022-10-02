@@ -19,7 +19,7 @@ const routes: Routes = [
  {path: 'Register', component: RegisterComponent},
  {path: 'PopUp', component: PopUpComponent},
  {path: 'Buycourses/:nome', component: BuycourseComponent},
- {path: 'Payment', component: PaymentComponent},
+ {path: 'Payment/:id', component: PaymentComponent},
  {path: 'Homeon', component: HomeOnComponent},
  {path: 'Certificate', component: CertificateComponent},
  {path: 'Export', component: ExportComponent},

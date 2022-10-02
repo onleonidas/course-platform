@@ -50,22 +50,6 @@ export class BuycourseComponent implements OnInit {
     }
 
 
-  buy_courses(){
-    const link = window.location.href
-    const strs = link.split('/');
-    console.log(strs)
-    const id = strs.at(-1)
-
-    const auth = getAuth();
-    const user = auth.currentUser;
-    this.userData = user?.email;
-    console.log(this.userData, id)
-
-    let resp = axios.post(this.server + '/AddCourse', {
-      email: this.userData, course_id: id
-    })
-  }
-
 
   
 }

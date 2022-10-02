@@ -18,7 +18,7 @@ export const ROUTES: Routes = [
     { path: 'Login', component: LoginComponent },
     { path: 'Register', component: RegisterComponent },
     { path: 'Buycourse/:id', component: BuycourseComponent },
-    { path: 'Payment', component: PaymentComponent },
+    { path: 'Payment/:id', component: PaymentComponent },
     { path: 'Certificate', component: CertificateComponent },
     { path: 'Export', component: ExportComponent },
     { path: 'settings', component: SettingsComponent},

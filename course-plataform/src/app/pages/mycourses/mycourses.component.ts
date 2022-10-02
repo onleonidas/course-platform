@@ -60,7 +60,6 @@ export class MycoursesComponent implements OnInit {
                   console.log('array', this.array_cursos)
             })  
         }
-        
       })
   }
 }
