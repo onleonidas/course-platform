@@ -171,12 +171,15 @@ router.get('/GetAllNot',(req,res) => {
 //================================================
 //retorna todos os cursos de um usuário
 router.post('/getUserCourses',(req,res) => {
-    const user_data = readFileConfig()
-    try{
-        let found_user = user_data.find(curr_user => curr_user.email === req.body.email);
-        const array_courses = found_user.courses_owned;
+    const user_data = readFileConfig();
+    const all_courses_data = readFile();
 
-        res.send(array_courses);
+    try{
+        const found_user = user_data.find(curr_user => curr_user.email === req.body.email);
+        const user_courses_ids = found_user.courses_owned.map(course => course.course_id);
+        const user_courses_data = all_courses_data.filter(course => user_courses_ids.includes(course.id));
+
+        res.send(user_courses_data);
     }catch{
         res.send("could not find user");
     }
@@ -188,7 +191,7 @@ router.post('/getUserCourses',(req,res) => {
 router.post('/AddCourse',(req,res) => {
     const user_data = readFileConfig()
     try{
-        let found_user = user_data.find(curr_user => curr_user.email === req.body.email);
+        const found_user = user_data.find(curr_user => curr_user.email === req.body.email);
         const array_courses = found_user.courses_owned;
 
         const new_course = {
