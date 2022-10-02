@@ -15,10 +15,13 @@ export class NavBarOnComponent implements OnInit{
   title = 'course-plataform';
   aluno = 'Michel Leonidas';
   server = 'http://localhost:3000';
+  is_professor: Boolean;
 
-  constructor(private auth : AuthService) { }
+  constructor(private auth : AuthService)
+    { this.is_professor = false }
 
   ngOnInit(): void {
+    this.get_noti_status();
   }
 
   logout() {
@@ -45,5 +48,15 @@ export class NavBarOnComponent implements OnInit{
       // you have one. Use User.getToken() instead.
       const uid = user.uid;
     }
+  }
+  async get_noti_status(){
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const name = user?.email
+    let resp = await axios.post(this.server + '/getConfig', {
+      name: name//trocar por nome do usuario
+    })
+    this.is_professor = resp.data.is_professor;
+    console.log(this.is_professor)
   }
 }
