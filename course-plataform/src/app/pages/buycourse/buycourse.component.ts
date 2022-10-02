@@ -61,7 +61,7 @@ export class BuycourseComponent implements OnInit {
     console.log(this.userData, id)
 
     let resp = axios.post(this.server + '/AddCourse', {
-      name: this.userData, id: id
+      email: this.userData, course_id: id
     })
   }
 

@@ -198,7 +198,6 @@ router.post('/AddCourse',(req,res) => {
             course_id: req.body.course_id,
             user_course_progress: 0
         }
-
         array_courses.push(new_course);
         found_user.courses_owned = array_courses;
         fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8');

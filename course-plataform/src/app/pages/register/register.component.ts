@@ -19,9 +19,6 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  
-  
-
   server = 'http://localhost:3000';
   state = {
     person: ""
@@ -54,11 +51,12 @@ export class RegisterComponent implements OnInit {
     }
     
     console.log(this.is_professor); 
+    this.save_config(this.email, this.is_professor)
     this.email = '';
     this.password = '';
   }
 
-  async save_config(){
+  async save_config(em: any, prof: any){
     await axios.post(this.server + '/SaveUserConfig', {
       name: this.email,
       email: this.email,
