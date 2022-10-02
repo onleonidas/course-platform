@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import axios from 'axios';
 import { AuthService } from 'src/app/services/auth.service';
 import { count } from 'rxjs';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 @Component({
   selector: 'app-home-on',
@@ -28,8 +29,10 @@ export class HomeOnComponent implements OnInit {
     }, 10000);
   }  
   async get_pop_up(){
+    const auth = getAuth();
+    const user = auth.currentUser;
     let resp = await axios.post(this.server + '/Popup', {
-      name: "michel"//lembrar de substituir
+      name: user?.email//lembrar de substituir
     })
     if(resp.data != "no notification"){
       console.log("mostre uma prom");
@@ -42,6 +45,8 @@ export class HomeOnComponent implements OnInit {
       }catch (error) {
         console.log(error)
       }
+    }else{
+      console.log("you are set to not receive notifications")
     }
   }
   ngOnDestroy(){this.is_runnig=false;console.log("destroying home on");}
