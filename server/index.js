@@ -175,7 +175,7 @@ router.post('/getUserCourses',(req,res) => {
     try{
         let found_user = user_data.find(curr_user => curr_user.email === req.body.email);
         const array_courses = found_user.courses_owned;
-
+        console.log(array_courses);
         res.send(array_courses);
     }catch{
         res.send("could not find user");
@@ -195,7 +195,7 @@ router.post('/AddCourse',(req,res) => {
             course_id: req.body.course_id,
             user_course_progress: 0
         }
-
+        console.log(array_courses)
         array_courses.push(new_course);
         found_user.courses_owned = array_courses;
         fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8');
