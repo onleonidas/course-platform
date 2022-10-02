@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { AuthService } from 'src/app/services/auth.service';
 import { json } from 'body-parser';
 
 @Component({
@@ -10,35 +12,25 @@ import { json } from 'body-parser';
 export class MycoursesComponent implements OnInit {
 
   server = 'http://localhost:3000';
+  user_data: any;
   array_cursos: any[]
   nomes: string[];
   links: string[];
   desc: string[];
   imagens: string[];
 
-  constructor() {this.nomes = [];this.links = [];this.desc = [];this.imagens = [];
+  constructor(private auth: AuthService) {this.nomes = [];this.links = [];this.desc = [];this.imagens = [];
     this.array_cursos = [];}
-  ngOnInit(): void {this.get_courses();}
+  ngOnInit(): void {}
 
-  async get_courses(){
-    const data1 = () => {return axios.get(this.server + '/Courseon', {})
-    .then(function (response) {
-      return response.data;
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-    }
-    data1().then(data => {
-      let dados = data;
-      let resp = ""
-      for (var i = 0; i < dados.length; i++) {
-        resp += dados[i];
-        if(dados[i] == '}'){
-          this.array_cursos.push(JSON.parse(resp));
-          resp = '';
-        }
-      }
-    })
+  async get_courses() {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    this.user_data = user;
+    
+    await axios.post(this.server + '/getUserCourses', { email: this.user_data.email })
+      .then(response => {
+        return response.data.map((course: { course_id: any; }) => course.course_id);
+      });
   }
 }
