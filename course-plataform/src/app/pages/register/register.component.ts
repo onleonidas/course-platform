@@ -13,10 +13,14 @@ export class RegisterComponent implements OnInit {
 
   email : string = '';
   password : string = '';
-
+  is_professor : boolean = false;
+  
   constructor(private auth : AuthService) {
 
   }
+
+  
+  
 
   server = 'http://localhost:3000';
   state = {
@@ -38,12 +42,23 @@ export class RegisterComponent implements OnInit {
 
     this.auth.register(this.email, this.password);
     console.log("oxe")
-    this.save_config(this.email)
+
+    const checkbox = document.getElementById(
+      'subscribe',
+    ) as HTMLInputElement | null;
+  
+    if (checkbox?.checked) {
+      this.is_professor = true
+    } else {
+      this.is_professor = false
+    }
+    
+    console.log(this.is_professor); 
     this.email = '';
     this.password = '';
   }
 
-  async save_config(log: any){
+  async save_config(){
     await axios.post(this.server + '/SaveUserConfig', {
       name: this.email,
       email: this.email,
