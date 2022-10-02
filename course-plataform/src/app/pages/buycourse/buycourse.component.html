@@ -1,7 +1,9 @@
 <div class="area">
     <div class="container_1" *ngFor="let course of array_cursos">
-        <iframe frameborder="0" allowfullscreen class="bg-img" 
-        src="https://www.youtube.com/embed/LDUMsO3f0-s"></iframe>
+        <iframe frameborder="0" allowfullscreen class="bg-img"></iframe>
+        
+
+        
         <div class="login">
             <h3 class="mb-3">{{course.title}}</h3>
             <p>{{course.desc}}</p>
@@ -80,7 +82,7 @@
                 </div>
                 <div class="buttons-section d-flex w-100">
                   <button class="btn btn-secondary text-light mt-3 btn2" routerLink="/Export" routerLinkActive="active-link">Certificate</button>
-                  <button class="btn btn-primary text-light mt-3 ml-3 btn2" (click)="buy_courses()">Buy Course: R$:{{course.price}}</button>
+                  <button class="btn btn-primary text-light mt-3 ml-3 btn2" (click)="buy_courses()"  data-toggle="modal" data-target="#exampleModal">Buy Course: R$:{{course.price}}</button>
                   
                 </div>
                 <p> src={{course.link}}</p>
