@@ -1,20 +1,17 @@
-<app-nav-bar-on></app-nav-bar-on>
-<div>
-    <div class="py-5">
-      <div class="container">
-        <div class="row hidden-md-up">
-          <button (click)="get_courses()">teste</button>
-          <div class="col-md-4" *ngFor="let course of array_cursos">
-            <div class="card py-2 px-2">
+<div class="container text-center">
+  <h3 class="mt-5 mb-5">Your courses</h3>
+  <button class="btn btn-primary text-light mt-3 ml-3 btn2 mb-5" (click)="get_courses()">Show my courses</button>
+  <div class="row hidden-md-up" >
+      <div class="col-md-4" *ngFor="let course of array_cursos">
+          <div class="card py-2 px-2 my-2">
+              <img src={{course.img}} class="card-img-top imgcard" alt="...">
               <div class="card-block">
-                <img src={{course.image}} class="card-img-top" alt="...">
-                <div class="card-block">
-                <h5 class="card-title mt-2">{{course.nome}}</h5>
-                <p class="card-text">{{course.descricao}}</p>
-                <a href="{{course.link}}" class="btn button_color text-light">Start</a>
+                  <h5 class="card-title mt-3">{{course.title}}</h5>
+                  <p class="card-text">{{course.desc}}</p>
+                  <a href="#" class="btn button_color text-light" [routerLink]="['/Buycourses',course.id]">Go somewhere</a>
               </div>
-            </div>
           </div>
       </div>
-    </div>
+  </div>
 </div>
+

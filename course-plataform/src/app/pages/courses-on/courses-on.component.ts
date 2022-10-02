@@ -30,6 +30,7 @@ export class CoursesOnComponent implements OnInit {
     }
     data1().then(data => {
       this.array_cursos = data;
+      console.log(this.array_cursos)
     })
   }
   

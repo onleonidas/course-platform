@@ -13,6 +13,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
   templateUrl: './buycourse.component.html',
   styleUrls: ['./buycourse.component.scss']
 })
+
 export class BuycourseComponent implements OnInit {
   userData:any = undefined;
   server = 'http://localhost:3000';

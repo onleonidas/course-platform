@@ -47,6 +47,14 @@ router.get('/:id', (req, res) => {
     res.send(selectedItem)
 })
 
+router.get('/GetCourseForId', (req, res) => {
+    const currentContent = readFile()
+    const {id} = req.params
+    const selectedItem = currentContent.find((item) => item.id === id)
+    console.log(selectedItem)
+    res.send(selectedItem)
+})
+
 router.delete('/:id', (req, res) => {
     const { id } = req.params
     const currentContent = readFile()
@@ -175,8 +183,8 @@ router.post('/getUserCourses',(req,res) => {
     try{
         let found_user = user_data.find(curr_user => curr_user.email === req.body.email);
         const array_courses = found_user.courses_owned;
-        console.log(array_courses);
         res.send(array_courses);
+
     }catch{
         res.send("could not find user");
     }
