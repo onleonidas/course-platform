@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
-import { DomSanitizer } from '@angular/platform-browser'; 
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
@@ -17,16 +17,13 @@ export class BuycourseComponent implements OnInit {
   userData:any = undefined;
   server = 'http://localhost:3000';
   array_cursos: any[]
-  nomes: string[];
-  links: string[];
-  desc: string[];
-  imagens: string[];
-  constructor(private param: ActivatedRoute, private auth: AuthService) {this.nomes = [];this.links = [];this.desc = [];this.imagens = [];
-    this.array_cursos = [];}
+  trustedUrl: SafeUrl;
+  
+  constructor(private param: ActivatedRoute, private auth: AuthService,private sanitizer: DomSanitizer) {
+    this.array_cursos = [];this.trustedUrl="";}
   ngOnInit(): void {this.get_courses();}
 
   async get_courses(){
-  
     const link = window.location.href
     const strs = link.split('/');
     console.log(strs)
@@ -42,10 +39,14 @@ export class BuycourseComponent implements OnInit {
     }
     data1().then(data => {
       this.array_cursos = [data];
-    })
-
-    
+      this.trustedUrl = this.sanitizer.bypassSecurityTrustUrl(this.array_cursos[0].link);
+      console.log(this.array_cursos)
+    })    
   }
+  
+  cleanURL(oldURL: string ): SafeUrl {
+    return   this.sanitizer.bypassSecurityTrustResourceUrl(oldURL);
+    }
 
 
   buy_courses(){
