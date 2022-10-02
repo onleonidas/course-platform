@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
       email: this.email,
       notfication_config:"I want to receive promotion notification",
       is_professor: this.is_professor,
-      courses_owned:[{"course_id":"","user_course_progress":0},]
+      courses_owned:[]
     })
   }
 }

@@ -43,7 +43,7 @@ export class MycoursesComponent implements OnInit {
         const courses = data;
         console.log(courses)
         for (var i = 0; i <= courses.length-1; i++){
-          if (courses[i] != "" && courses[i] != undefined)
+          if (courses[i] != "" || courses[i] != undefined)
             console.log(courses[i])
             const data2 = () => {return axios.get(this.server + "/"+courses[i], {})
             .then(function (response) {
