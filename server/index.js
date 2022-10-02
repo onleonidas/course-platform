@@ -169,6 +169,20 @@ router.get('/GetAllNot',(req,res) => {
 })
 
 //================================================
+//retorna todos os cursos de um usuário
+router.post('/getUserCourses',(req,res) => {
+    const user_data = readFileConfig()
+    try{
+        let found_user = user_data.find(curr_user => curr_user.email === req.body.email);
+        const array_courses = found_user.courses_owned;
+
+        res.send(array_courses);
+    }catch{
+        res.send("could not find user");
+    }
+})
+
+//================================================
 // Adiciona um curso a um usuario
 // passar um json com name: e course_id: 
 router.post('/AddCourse',(req,res) => {
