@@ -54,10 +54,10 @@ export class MycoursesComponent implements OnInit {
             })
             }
             data2().then(data => {
-              
-              this.array_cursos.push(data);
-              this.trustedUrl = this.sanitizer.bypassSecurityTrustUrl(this.array_cursos[0][i].link);
-              console.log('array', this.array_cursos)
+              if (this.array_cursos.length != courses.length)
+                  this.array_cursos.push(data);
+                  this.trustedUrl = this.sanitizer.bypassSecurityTrustUrl(this.array_cursos[0][i].link);
+                  console.log('array', this.array_cursos)
             })  
         }
         
