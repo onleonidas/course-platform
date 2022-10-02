@@ -98,7 +98,7 @@ router.post('/getConfig',(req,res) => {
     try{
         var i = 0;
         while(true){
-            if(user_data[i].name==req.body.name){
+            if(user_data[i].email==req.body.name){
                 break;
             }else{
                 i++;
