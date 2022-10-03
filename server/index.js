@@ -229,6 +229,8 @@ router.post('/updateCouseProgress',(req,res) => {
         course_to_update.user_course_progress += req.body.progress_update;
         if (course_to_update.user_course_progress < 0) 
             course_to_update.user_course_progress = 0;
+        if (course_to_update.user_course_progress > 1) 
+            course_to_update.user_course_progress = 1;
             
         fs.writeFileSync('./user-config.json', JSON.stringify(user_data), 'utf-8');
 
