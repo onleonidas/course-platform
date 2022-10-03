@@ -5,9 +5,9 @@
         <div class="login">
             <h3 class="mb-3">{{course.title}}</h3>
             <p>{{course.desc}}</p>
-            <div class="progress mb-3">
+            <!-- <div class="progress mb-3">
                 <div class="progress-bar" role="progressbar" aria-label="Basic example" style="width: 1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            </div> -->
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOne">
@@ -78,10 +78,17 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="form-check mt-3">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" id="course_completed" (change)="handle_course_completion()">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Curso concluido
+                  </label>
+                </div>
+
                 <div class="buttons-section d-flex w-100">
-                  <button class="btn btn-secondary text-light mt-3 btn2" routerLink="/Export" routerLinkActive="active-link">Certificate</button>
+                  <button class="btn btn-secondary text-light mt-3 btn2" routerLink="/Export" routerLinkActive="active-link" [disabled]="certificate_allowed">Certificate</button>
                   <button class="btn btn-primary text-light mt-3 ml-3 btn2" (click)="buy_courses()">Buy Course: R$:{{course.price}}</button>
-                  
                 </div>
             </div>     
         </div>

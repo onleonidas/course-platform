@@ -16,6 +16,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export class BuycourseComponent implements OnInit {
   userData:any = undefined;
+  certificate_allowed:boolean = true;
   server = 'http://localhost:3000';
   array_cursos: any[]
   trustedUrl: SafeUrl;
@@ -66,7 +67,25 @@ export class BuycourseComponent implements OnInit {
     })
   }
 
+  async handle_course_completion() {
+    let is_complete = false;
+    const auth = getAuth();
+    const user = auth.currentUser;
+    this.userData = user?.email;
 
-  
+    const link = window.location.href
+    const strs = link.split('/');
+    const id = strs.at(-1)
+
+    const checkbox = document.getElementById('course_completed') as HTMLInputElement | null;
+    checkbox?.checked ? is_complete = true : is_complete = false;
+
+    await axios.post(this.server + '/updateCouseProgress', {
+      email: user?.email,
+      course_id: id,
+      progress_update: is_complete ? 1 : -1
+    })
+      .then(() => this.certificate_allowed = false)
+  }
 }
 
