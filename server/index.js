@@ -31,7 +31,6 @@ router.post('/Courseupload', (req, res) => {
     const { title, desc, price, link, img } = req.body
     const currentContent = readFile()
     const id = Math.random().toString(32).substring(2, 9)
-    console.log(id)
     currentContent.push({ id, title, desc, price, link, img })
     writeFile(currentContent)
     res.send({ title, desc, price, link, img })
@@ -43,7 +42,6 @@ router.get('/:id', (req, res) => {
     const currentContent = readFile()
     const {id} = req.params
     const selectedItem = currentContent.find((item) => item.id === id)
-    console.log(selectedItem)
     res.send(selectedItem)
 })
 
@@ -51,7 +49,6 @@ router.get('/GetCourseForId', (req, res) => {
     const currentContent = readFile()
     const {id} = req.params
     const selectedItem = currentContent.find((item) => item.id === id)
-    console.log(selectedItem)
     res.send(selectedItem)
 })
 
@@ -74,24 +71,28 @@ router.post('/Popup',(req,res) => {
     const rfc = readFileConfig()
     try{
         var i = 0;
-                while(true){
-                    if(rfc[i].name==req.body.name){
-                        break;
-                    }else{
-                        i++;
-                    }
-                }
+        while(true){
+            if(rfc[i].email==req.body.name){
+                break;
+            }else{
+                i++;
+            }
+        }
+        if(i>=4){i = 3}
+        console.log(rfc[i].notfication_config)
+        if(rfc[i].notfication_config == "I want to receive promotion notification"){
+            var count = Object.keys(rfn).length;
+            let rand = Math.floor(Math.random() * count);
+            res.send(rfn[rand]);
+        }else{
+            res.send("no notification");
+        }
     }catch{
+        console.log(rfc)
+        console.log(req.body.name)
         res.send("no notification");
     }
-    if(i>=4){i = 3}
-    if(rfc[i].notfication_config== "I want to receive promotion notification"){
-        var count = Object.keys(rfn).length;
-        let rand = Math.floor(Math.random() * count);
-        res.send(rfn[rand]);
-    }else{
-        res.send("no notification");
-    }
+
 })
 
 //======= settings
@@ -124,7 +125,7 @@ const updateFileConfig = (content,newdata) => {
     var i = 0;
     try{
         while(true){
-            if(user_data[i].name == content){
+            if(user_data[i].email == content){
                 user_data[i].notfication_config = newdata;
                 break;
             }
@@ -138,10 +139,14 @@ const updateFileConfig = (content,newdata) => {
 //muda a notificacao de usuario
 router.post('/ChangeNoti',(req,res) => {
     const user_data = readFileConfig()
-    try{
+    //try{
         var i = 0;
         while(true){
-            if(user_data[i].name==req.body.name){
+            console.log(i)
+            console.log(user_data[i].email)
+            console.log(req.body.name)
+            console.log()
+            if(user_data[i].email==req.body.name){
                 break;
             }else{
                 i++;
@@ -156,9 +161,9 @@ router.post('/ChangeNoti',(req,res) => {
             updateFileConfig(req.body.name,str1);
             res.send(str1);
         }
-    }catch{
-        res.send("could not find data")
-    }
+    //}catch{
+        //res.send("could not find data")
+    //}
 })
 
 //salva um novo usario 

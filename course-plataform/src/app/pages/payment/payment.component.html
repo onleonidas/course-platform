@@ -17,7 +17,8 @@
                     <label for="exampleInputEmail1" class="form-label mt-3">Card Number</label>
                     <input type="text" class="form-control" placeholder=>
                   </div>
-                <button type="submit" class="button text-light mt-2">Buy</button>
+                <button type="submit" class="button text-light mt-2" (click)="buy_courses()" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                routerLink="/Mycourses" routerLinkActive="active-link">Buy</button>
               </form>  
         </div>
         <div class="bg-img">
@@ -25,3 +26,19 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Congratulations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          You just acquire a new course!
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+    </div>
+  </div>
+  
