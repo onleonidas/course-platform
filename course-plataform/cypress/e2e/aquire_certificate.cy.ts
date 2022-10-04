@@ -8,6 +8,7 @@ describe('empty spec', () => {
     cy.get(".go_somewhere").first().click()
     cy.get("#course_completed").check()
     cy.get('button[name="certificate"]').click()
+    cy.get('#generate_button').click()
     cy.get('#export_button').click()
   })
 })
