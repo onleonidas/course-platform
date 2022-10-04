@@ -17,19 +17,7 @@ Scenario: attmpting to login with the wrong password
         And a wrong password "54321@"
         Then i press the confirm buttom
         And a "wrong password" message appears
-
-Scenario: the client wants to change his password
-        Given i am at the login page
-        And i click on teh "forgot password" buttom
-        When i see a message asking for my email
-        And i write my email used to create my account
-        And i click on the link that was sent to my email 
-        And i am redirected to a page asking for my new password
-        And i fill my new password
-        Then i click the "confirm" buttom
-        And a "password redefined successfully" message appears
-
-
+        
 Scenario: the client wants to login on his account using a mobile device
         Given i am logged in on my phone as "julio"
         And i am at the login page on my computer

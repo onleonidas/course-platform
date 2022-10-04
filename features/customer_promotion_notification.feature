@@ -22,7 +22,6 @@ Scenario: The client can visualize his notification history
     Then I go to the notifications history page 
     And I see all my notification ever sent to "joão"
 
-
 Scenario: The client can use the notifications in notifications history
     Given I logged in as client "Alberto"
     And I am at the notifications history page 

@@ -8,13 +8,6 @@ Feature: Upload course as a professor
         And  I see the option to upload a course
         When I open the upload course option
         Then A new window show me the course upload menu
-
-    Scenario: I want to to edit my course before upload 
-        Given I am logged in as a "professor"
-        And  I am at the couse upload menu
-        And  I see the option to edit the name and link for the course
-        When I finish editing
-        Then I can upload the course 
         
     Scenario: I try to to edit my course before upload but with without a name
         Given I am logged in as a "professor"
