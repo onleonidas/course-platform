@@ -85,7 +85,7 @@ export class BuycourseComponent implements OnInit {
       course_id: id,
       progress_update: is_complete ? 1 : -1
     })
-      .then(() => this.certificate_allowed = false)
+      .then(() => is_complete ? this.certificate_allowed = false : this.certificate_allowed = true)
   }
 }
 

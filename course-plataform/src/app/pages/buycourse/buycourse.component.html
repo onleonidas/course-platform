@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="buttons-section d-flex w-100 classdiv">
-                  <button class="btn btn-secondary text-light mt-3 btn2" name="certificate" routerLink="/Export" routerLinkActive="active-link">Certificate</button>
+                  <button class="btn btn-secondary text-light mt-3 btn2" name="certificate" routerLink="/Export" routerLinkActive="active-link" [disabled]="certificate_allowed" >Certificate</button>
                   <button id="test2" class="btn btn-primary text-light mt-3 ml-3 btn2 compra-curso" name="compracurso" [routerLink]="['/Payment',course.id]">Buy Course: R$:{{course.price}}</button>           
                 </div>
             </div>     
