@@ -12,6 +12,10 @@ import axios from 'axios';
 export class ExportComponent implements OnInit {
   server = 'http://localhost:3000';
   userData:any = undefined;
+  certificate_data = {
+    name: "",
+    course: ""
+  }
 
   constructor(private auth: AuthService) { }
 
@@ -26,13 +30,17 @@ export class ExportComponent implements OnInit {
     console.log(this.userData);
   }
 
-  async generateCertificate() {
+  generate_certificate() {
     const auth = getAuth();
     const user = auth.currentUser;
+    this.certificate_data.name = String(user!.email);
 
-    await axios.post(this.server + "/generateCertificate", { user })
-      .then(response => {
-        console.log(response);
-      })
+    const link = window.location.href
+    const strs = link.split('/');
+    console.log(strs)
+    const id = strs.at(-1)
+
+    axios.get(this.server + "/" + id, {})
+      .then(response => this.certificate_data.course = response.data.title)
   }
 }
