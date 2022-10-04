@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-certificate',
@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./certificate.component.scss']
 })
 export class CertificateComponent implements OnInit {
-
+  @Input() props!: {
+    name: string | null;
+    course: string | null;
+  };
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -22,7 +22,10 @@ export class BuycourseComponent implements OnInit {
   trustedUrl: SafeUrl;
   
   constructor(private param: ActivatedRoute, private auth: AuthService,private sanitizer: DomSanitizer) {
-    this.array_cursos = [];this.trustedUrl="";}
+    this.array_cursos = [];
+    this.trustedUrl="";
+  }
+  
   ngOnInit(): void {this.get_courses();}
 
   async get_courses(){

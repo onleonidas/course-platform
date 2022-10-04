@@ -21,8 +21,8 @@ const routes: Routes = [
  {path: 'Buycourses/:nome', component: BuycourseComponent},
  {path: 'Payment/:id', component: PaymentComponent},
  {path: 'Homeon', component: HomeOnComponent},
- {path: 'Certificate/:id', component: CertificateComponent},
- {path: 'Export', component: ExportComponent},
+ {path: 'Certificate', component: CertificateComponent},
+ {path: 'Export/:id', component: ExportComponent},
  {path: 'UploadCourse', component: UploadCourseComponent}
 ];
 
