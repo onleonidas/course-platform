@@ -7,4 +7,12 @@ export default defineConfig({
       defaultCommandTimeout: 10000;
     },
   },
+
+  component: {
+    devServer: {
+      framework: "angular",
+      bundler: "webpack",
+    },
+    specPattern: "**/*.cy.ts",
+  },
 });
