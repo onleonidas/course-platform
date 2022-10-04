@@ -6,25 +6,25 @@
                 <div class="row">
                     <div class="col">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" [(ngModel)]="title">
+                        <input type="text" class="form-control" name="nomecurso" [(ngModel)]="title">
                     </div>
                     <div class="col">
                         <label class="form-label">Price</label>
-                        <input type="text" class="form-control" [(ngModel)]="price">
+                        <input type="text" class="form-control" name="precocurso" [(ngModel)]="price">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">video link</label>
-                        <input type="text" class="form-control" [(ngModel)]="link">
+                        <input type="text" class="form-control" name="linkcurso" [(ngModel)]="link">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">description</label>
-                        <input type="text" class="form-control"  [(ngModel)]="desc">
+                        <input type="text" class="form-control" name="desc" [(ngModel)]="desc">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">image link</label>
-                        <input type="text" class="form-control"  [(ngModel)]="img">
+                        <input type="text" class="form-control" name="imglink" [(ngModel)]="img">
                     </div>
-                    <button  type="submit" class="button text-light mt-2" (click)="post_courses()">cadastrar curso</button>
+                    <button  type="submit" class="button text-light mt-2" (click)="post_courses()" name="cadastracurso">cadastrar curso</button>
                 </div>
         </div>
         <div class="bg-img">
