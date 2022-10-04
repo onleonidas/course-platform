@@ -1,13 +1,13 @@
 <div class="container text-center">
     <h3 class="mt-5 mb-5">Popular Courses</h3>
     <div class="row hidden-md-up" >
-        <div class="col-md-4" *ngFor="let course of array_cursos">
+        <div class="col-md-4 divdomeio" *ngFor="let course of array_cursos">
             <div class="card py-2 px-2 my-2">
                 <img src={{course.img}} class="card-img-top imgcard" alt="...">
                 <div class="card-block">
                     <h5 class="card-title mt-3">{{course.title}}</h5>
                     <p class="card-text">{{course.desc}}</p>
-                    <a href="#" class="btn button_color text-light" [routerLink]="['/Buycourses',course.id]">Go somewhere</a>
+                    <a href="#" class="btn button_color text-light go_somewhere" [routerLink]="['/Buycourses',course.id]">Buy Course</a>
                 </div>
             </div>
         </div>
