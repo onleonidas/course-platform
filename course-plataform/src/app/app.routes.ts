@@ -19,7 +19,7 @@ export const ROUTES: Routes = [
     { path: 'Register', component: RegisterComponent },
     { path: 'Buycourse/:id', component: BuycourseComponent },
     { path: 'Payment/:id', component: PaymentComponent },
-    { path: 'Certificate', component: CertificateComponent },
+    { path: 'Certificate/:id', component: CertificateComponent },
     { path: 'Export', component: ExportComponent },
     { path: 'settings', component: SettingsComponent},
     { path: 'Homeon', component: HomeOnComponent},
